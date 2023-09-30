@@ -2,5 +2,8 @@
 
 return [
     'Home' => 'Home',
-    'Logout' => 'Logout'
+    'Logout' => 'Logout',
+    'Users' => 'Users',
+    'UserLists' => 'User Lists',
+    'UserAdd' => 'User Add'
 ];

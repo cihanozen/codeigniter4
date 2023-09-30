@@ -55,9 +55,12 @@ class Auth extends BaseController
             }
             else
             {
+
+                $locale = service('request')->getLocale();
+
                 $user_id = $user_info['id'];
                 session()->set('loggedUser', $user_id);
-                return redirect()->to('dashboard');
+                return redirect()->to($locale.'/dashboard');
             }
 
         }

@@ -11,9 +11,11 @@ class AuthCheckFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
        
+        $locale = service('request')->getLocale();
+        
         if(!session()->has('loggedUser'))
         {
-            return redirect()->to('/')->with('fail', 'Oturum açmadan bu sayfaya giremezsiniz!');
+            return redirect()->to($locale.'/')->with('fail', 'Oturum açmadan bu sayfaya giremezsiniz!');
         }
         
     }

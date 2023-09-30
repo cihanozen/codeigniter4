@@ -43,9 +43,32 @@
                 <i class="right fas "></i>
               </p>
             </a>
-
           </li>
- 
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                <?php echo Lang('Text.Users');?>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/'.Lang('Link.UserList'))?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.UserLists');?></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/'.Lang('Link.UserAdd'))?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.UserAdd');?></p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

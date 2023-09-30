@@ -2,14 +2,12 @@
 
 namespace App\Controllers;
 
-class Dashboard extends BaseController
+class User extends BaseController
 {
 
     public function index()
     {
 
-        //$uri = $this->request->getUri();
-        
         $locale = $this->request->getLocale();
         $userModel = new \App\Models\UsersModel();
         $loggedUserId = session()->get('loggedUser');
@@ -21,8 +19,13 @@ class Dashboard extends BaseController
             'locale' => $locale
         ];
 
-        return view('Panel/Dashboard_v', $data);
+        return view('Panel/User_v', $data);
 
+    }
+
+    public function userLists()
+    {
+        echo "Kullanıcı Listesi Sayfası";
     }
 
 

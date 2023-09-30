@@ -2,5 +2,8 @@
 
 return [
     'Home' => 'Anasayfa',
-    'Logout' => 'Çıkış'
+    'Logout' => 'Çıkış',
+    'Users' => 'Kullanıcılar',
+    'UserLists' => 'Kullanıcı Listesi',
+    'UserAdd' => 'Kullanıcı Ekle'
 ];
