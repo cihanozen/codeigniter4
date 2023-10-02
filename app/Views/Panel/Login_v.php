@@ -32,7 +32,7 @@
 
       <?php endif; ?>
 
-      <form action="<?php echo base_url('Auth/check') ?>" method="post">
+      <form action="<?php echo base_url('auth-control') ?>" method="post">
         <div class="input-group mb-3">
           <input type="text" name="email" class="form-control" placeholder="Email" autocomplete="off" value="<?php echo set_value('email'); ?>" >
           <div class="input-group-append">

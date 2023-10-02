@@ -22,4 +22,18 @@ function sef_link($str){
     return $perma;
 }
 
+function status($x){
+    
+    if($x == 1){
+
+        echo '<span class="badge badge-success">'.lang('Text.Active').'</span>';
+
+    }else{
+
+        echo '<span class="badge badge-secondary">'.lang('Text.Passive').'</span>';
+
+    }
+
+}
+
 ?>

@@ -13,9 +13,10 @@ class Auth extends BaseController
         return view('Panel/Login_v');
     }
 
-    public function check()
+    public function control()
     {
         
+
         $validation = \Config\Services::validation();
 
         $check = $this->validate([

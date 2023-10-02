@@ -2,5 +2,8 @@
 
 return [
     'UserList' => 'kullanici-listesi',
-    'UserAdd' => 'kullanici-ekle'
+    'UserAdd' => 'kullanici-ekle',
+    'UserEdit' => 'kullanici-duzenle',
+    'UserDelete' => 'kullanici-sil',
+    'UserUpdate' => 'kullanici-guncelle',
 ];

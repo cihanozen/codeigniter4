@@ -45,7 +45,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-lists' || $uri->getSegment(2) == 'user-add') ? 'menu-open' : '';?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -55,13 +55,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url($locale.'/'.Lang('Link.UserList'))?>" class="nav-link">
+                <a href="<?php echo base_url($locale.'/user-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-lists') ? 'active' : '';?> ">
                   <i class="far fa-circle nav-icon"></i>
                   <p><?php echo Lang('Text.UserLists');?></p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url($locale.'/'.Lang('Link.UserAdd'))?>" class="nav-link">
+                <a href="<?php echo base_url($locale.'/user-add')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-add') ? 'active' : '';?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p><?php echo Lang('Text.UserAdd');?></p>
                 </a>

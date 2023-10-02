@@ -7,10 +7,6 @@ class Dashboard extends BaseController
 
     public function index()
     {
-
-        //$uri = $this->request->getUri();
-        
-        $locale = $this->request->getLocale();
         $userModel = new \App\Models\UsersModel();
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $userModel->find($loggedUserId);
@@ -18,7 +14,8 @@ class Dashboard extends BaseController
         $data = [
             'username' => @$userInfo['username'],
             'email' => @$userInfo['email'],
-            'locale' => $locale
+            'locale' => $this->viewData['locale'],
+            'uri' => $this->viewData['uri']
         ];
 
         return view('Panel/Dashboard_v', $data);

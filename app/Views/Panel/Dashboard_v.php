@@ -3,16 +3,14 @@
 
 <?php echo view('Panel/inc/Header');?>
 
-
-
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 
-<?php echo view('Panel/inc/Menu');?>
-
 <div class="wrapper">
 
+<?php echo view('Panel/inc/HeaderContent'); ?>
 
+<?php echo view('Panel/inc/Menu');?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
