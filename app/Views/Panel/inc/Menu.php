@@ -69,6 +69,30 @@
             </ul>
           </li>
 
+          <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-group-lists' || $uri->getSegment(2) == 'user-group-add') ? 'menu-open' : '';?>">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-folder"></i>
+              <p>
+                <?php echo Lang('Text.UsersGroup.Groups');?>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/user-group-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-group-lists') ? 'active' : '';?> ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.UsersGroup.GroupLists');?></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/user-group-add')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-group-add') ? 'active' : '';?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.UserGroup.GroupAdd');?></p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

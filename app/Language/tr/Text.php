@@ -7,6 +7,7 @@ return [
     'UserLists' => 'Kullanıcı Listesi',
     'UserAdd' => 'Kullanıcı Ekle',
     'UserEdit' => 'Kullanıcı Düzenle',
+    
     'NewUserAdd' => 'Yeni Kullanıcı Ekle',
 
     'Select' => 'Seçin',
@@ -37,5 +38,23 @@ return [
     'Users.Add.Error.Group' => "Lütfen kullanıcının yönetim grubunu seçin!",
     'Users.Add.Error.IsUnique' => "Bu mail adresini bir başka kullanıcı kullanıyor!",
     'Users.Add.Error.ValidEmail' => "Geçerli bir mail adresi yazın!",
+
+    'UsersGroup.Groups' => 'Kullanıcı Grupları',
+    'UsersGroup.GroupLists' => 'Grupları Listele',
+    'UserGroup.GroupAdd' => 'Grup Ekle',
+
+    'UsersGroup.GroupName' => 'Grup Adı',
+    'UsersGroup.GroupStatus' => 'Grup Durum',
+    'UsersGroup.NewGroupAdd' => 'Yeni Grup Ekle',
+
+    'UsersGroup.Error.GroupName' => 'Lütfen bir grup adı girin!',
+    'UsersGroup.Error.GroupStatus' => 'Lütfen grubun durumunu seçin!',
+
+    'UsersGroup.Edit.Success' => 'Grup başarıyla güncellendi!',
+    'UsersGroup.Add.Success' => 'Grup başarıyla eklendi!',
+    'UsersGroup.Delete.Success' => 'Grup başarıyla silindi!',
+
+
     
+
 ];

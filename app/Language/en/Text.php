@@ -38,4 +38,19 @@ return [
     'Users.Add.Error.IsUnique' => "Another user is using this e-mail address!",
     'Users.Add.Error.ValidEmail' => "Type a valid email address!",
 
+    'UsersGroup.Groups' => 'User Groups',
+    'UsersGroup.GroupLists' => 'Group Lists',
+    'UserGroup.GroupAdd' => 'Group Add',
+
+    'UsersGroup.GroupName' => 'Group Name',
+    'UsersGroup.GroupStatus' => 'Group Status',
+    'UsersGroup.NewGroupAdd' => 'New Group Add',
+
+    'UsersGroup.Error.GroupName' => 'Please enter a group name!',
+    'UsersGroup.Error.GroupStatus' => 'Please select the status group!',
+
+    'UsersGroup.Edit.Success' => 'User Group updated successfully!',
+    'UsersGroup.Add.Success' => 'Adding User Group completed successfully!',
+    'UsersGroup.Delete.Success' => 'User Group deleted successfully!',
+
 ];
