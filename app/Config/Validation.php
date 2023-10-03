@@ -41,4 +41,24 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    public $userRules = [
+
+        'email' => [
+            'rules'     => 'required|valid_email|is_not_unique[users.email]',
+            'errors'    => [
+                'required' => 'Email boş bırakılamaz!',
+                'valid_email' => 'Geçerli bir mail adresi yazmadınız!',
+                'is_not_unique' => 'Bu mail adresi kayıtlı değil!'
+            ]
+        ],
+        'password' => [
+            'rules'     => 'required',
+            'errors'    => [
+                'required' => 'Şifre boş bırakılamaz!'
+            ]
+        ]
+
+    ];
+
 }

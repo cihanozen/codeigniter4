@@ -43,7 +43,7 @@
         </div>
 
         <div class="pb-2 text-danger" style="margin-top: -12px; font-size:14px;">
-            <?php echo isset($validation) ? display_error($validation,'email') : ''; ?>
+            <?php echo isset($validation['email']) ? $validation['email'] : ''; ?>
         </div>
 
         <div class="input-group mb-3">
@@ -56,7 +56,7 @@
         </div>
 
         <div class="pb-2 text-danger" style="margin-top: -12px; font-size:14px;">
-            <?php echo isset($validation) ? display_error($validation,'password') : ''; ?>
+            <?php echo isset($validation['password']) ? $validation['password'] : ''; ?>
         </div>
 
         <div class="row">

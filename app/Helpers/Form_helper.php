@@ -2,9 +2,9 @@
 
 function display_error($validate,$field)
 {
-    if($validate->hasError($field))
+    if($validate['email']->hasError($field))
     {
-        return $validate->getError($field);
+        return $validate['email']->getError($field);
     }
     else
     {

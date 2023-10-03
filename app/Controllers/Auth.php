@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\Controller;
 use \App\Models\UsersModel;
 use \App\Libraries\Hash;
 
@@ -15,53 +16,52 @@ class Auth extends BaseController
 
     public function control()
     {
-        
-
-        $validation = \Config\Services::validation();
-
-        $check = $this->validate([
-            'email' => [
-                'rules'     => 'required|valid_email|is_not_unique[users.email]',
-                'errors'    => [
-                    'required' => 'Email boş bırakılamaz!',
-                    'valid_email' => 'Geçerli bir mail adresi yazmadınız!',
-                    'is_not_unique' => 'Bu mail adresi kayıtlı değil!'
-                ]
-            ],
-            'password' => [
-                'rules'     => 'required',
-                'errors'    => [
-                    'required' => 'Şifre boş bırakılamaz!'
-                ]
-            ]
-        ]);
-
-        if(!$check)
-        {
-            return view('Panel/Login_v', ['validation' => $this->validator]);
-        }
-        else
+    
+        // Eğer post varsa bu kısım çalışıyor!
+        if ($this->request->is('post')) 
         {
 
-            $email          = $this->request->getPost('email');
-            $password       = $this->request->getPost('password');
-            $usersModel     = new \App\Models\UsersModel();
-            $user_info      = $usersModel->where('email', $email)->first();
-            $check_password = Hash::check($password, Hash::make($user_info['password']));
+            //Tüm kuralları ve hataları App>Config>Validation.php içerisine aldım.
+            $validation = \Config\Services::validation();
 
-            if(!$check_password)
+            // View'den gönderilen input datalarını bir arraya aldım.
+            $data = [
+                'email'     => $this->request->getPost('email'),
+                'password'  => $this->request->getPost('password')
+            ];
+
+            // Gelen dataları userRules adını verdiğim kısıma gönderip kontrol edilmesini sağladım.
+            // Eğer datalar girilen kurallara uymuyorsa giriş sayfasına gönder ve hataları göster yaptım.
+            if(!$validation->run($data,'userRules'))
             {
-                session()->setFlashdata('fail','Şifre Hatalı!');
-                return redirect()->to('/')->withInput();
+                return view('Panel/Login_v', [
+                    'validation' => $validation->getErrors()
+                ]);
             }
             else
             {
 
-                $locale = service('request')->getLocale();
+                // Validate işleminden geçtik şimdi formdan gelen datayı kontrol ediyorum.
+                // Model dosyamı kullanmak için buraya aldım.
+                $usersModel     = new \App\Models\UsersModel();
+                $user_info      = $usersModel->where('email', $data['email'])->first();
+                $check_password = Hash::check($data['password'], Hash::make($user_info['password']));
+    
+                // DB'den gelen şifre ile formdan gelen şifre ile uyuşuyor mu kontrol ettim.
+                if(!$check_password)
+                {
+                    session()->setFlashdata('fail','Şifre Hatalı!');
+                    return redirect()->to('/')->withInput();
+                }
+                else
+                {
+                    $user_id = $user_info['id'];
+                    session()->set('loggedUser', $user_id);
 
-                $user_id = $user_info['id'];
-                session()->set('loggedUser', $user_id);
-                return redirect()->to($locale.'/dashboard');
+                    // Locale BaseController içerisinden geliyor ve sayfayı yönlendiriyoruz.
+                    return redirect()->to($this->viewData['locale'].'/dashboard');
+                }
+
             }
 
         }
@@ -70,8 +70,11 @@ class Auth extends BaseController
 
     public function logout()
     {
+
+        // Eğer bir session varsa çalışacak alan!
         if(session()->has('loggedUser'))
         {
+            // loggedUser isimli session kaldırıldı ve oturumdan çıkış yapıldı!
             session()->remove('loggedUser');
             return redirect()->to('/')->with('fail','Oturumu Kapattınız!');
         }
