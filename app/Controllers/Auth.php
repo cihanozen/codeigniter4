@@ -44,6 +44,7 @@ class Auth extends BaseController
                 // Validate işleminden geçtik şimdi formdan gelen datayı kontrol ediyorum.
                 // Model dosyamı kullanmak için buraya aldım.
                 $usersModel     = new \App\Models\UsersModel();
+                $userGroupModel = new \App\Models\UsersGroupModel();
                 $user_info      = $usersModel->where('email', $data['email'])->first();
                 $check_password = Hash::check($data['password'], Hash::make($user_info['password']));
     
@@ -56,7 +57,18 @@ class Auth extends BaseController
                 else
                 {
                     $user_id = $user_info['id'];
-                    session()->set('loggedUser', $user_id);
+                    $userGroup_id = $user_info['group_id'];
+                    $user_email = $user_info['email'];
+                    $username = $user_info['username'];
+
+                    $sessionData = [
+                        'user_id' => $user_id,
+                        'group_id' => $userGroup_id,
+                        'email' => $user_email,
+                        'username' => $username
+                    ];
+
+                    session()->set('loggedUser', $sessionData);
 
                     // Locale BaseController içerisinden geliyor ve sayfayı yönlendiriyoruz.
                     return redirect()->to($this->viewData['locale'].'/dashboard');

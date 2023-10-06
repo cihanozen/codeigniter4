@@ -18,12 +18,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo lang('Text.UsersGroup.Groups');?></h1>
+            <h1><?php echo lang('Text.UserGroup.GroupAdd');?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('Text.Home');?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('Text.UsersGroup.Groups');?></li>
+              <li class="breadcrumb-item active"><?php echo lang('Text.UserGroup.GroupAdd');?></li>
             </ol>
           </div>
         </div>
@@ -35,7 +35,18 @@
 
     <!-- Main content -->
     <section class="content">
+
+    <?php
       
+      if(!isAllowedModules("user_group_view_p")){ ?>
+          
+          <div class="callout callout-info">
+              <h5><i class="fas fa-info mr-3"></i> <?php echo Lang('Text.WarningMessage');?></h5>
+              <?php echo Lang('Text.WarningDesc');?>
+          </div>
+           
+    <?php }else{ ?>
+
       <div class="row">
         <div class="col-md-12">
        
@@ -85,13 +96,157 @@
         </div>
        
       </div>
+
+      <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Grup İzinleri</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                    <th style="width: 20%;"><?php echo lang('Text.UsersGroup.PermissionArea');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.View');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Add');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Edit');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Delete');?></th>
+                    </tr>
+                  </thead>
+                 
+                  <tbody>
+                    <tr>
+                      <td>Dashboard</td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                       
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_view_p" name="dashboard_view_p">
+                          <label for="dashboard_view_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                        
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_save_p" name="dashboard_save_p" >
+                          <label for="dashboard_save_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                            <input
+                            
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_edit_p"name="dashboard_edit_p" >
+                            <label for="dashboard_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
+                          </div>  
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                         
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_delete_p" name="dashboard_delete_p" >
+                          <label for="dashboard_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Kullanıcılar</td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                          
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_view_p" name="user_view_p">
+                          <label for="user_view_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                        
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_save_p" name="user_save_p" >
+                          <label for="user_save_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                            <input
+                  
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_edit_p"name="user_edit_p" >
+                            <label for="user_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
+                          </div>  
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                      
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_delete_p" name="user_delete_p" >
+                          <label for="user_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Kullanıcı Grupları</td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                       
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_view_p" name="user_group_view_p" >
+                          <label for="user_group_view_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                         
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_save_p" name="user_group_save_p">
+                          <label for="user_group_save_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                            <input
+                           
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_edit_p"name="user_group_edit_p">
+                            <label for="user_group_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
+                          </div>  
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                       
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_delete_p" name="user_group_delete_p">
+                          <label for="user_group_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+
+      <?php if(isAllowedModules("user_group_save_p")){ ?>
+
       <div class="row">
         <div class="col-12">
           <input type="submit" value="<?php echo Lang('Text.Users.Button.Save');?>" class="btn btn-success float-right">
           <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.Users.Button.Cancel');?></a>
         </div>
       </div>
+
+      <?php } ?>
+
       </form>
+
+    <?php } ?>
+      
+
     </section>
 
 

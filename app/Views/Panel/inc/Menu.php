@@ -14,7 +14,7 @@
           <img src="<?php echo base_url('assets/dist/img/user2-160x160.jpg')?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <?php echo $username;?></a>
+          <a href="#" class="d-block"><?php echo session()->get('loggedUser')['username']?></a>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
             </a>
           </li>
 
-          <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-lists' || $uri->getSegment(2) == 'user-add') ? 'menu-open' : '';?>">
+          <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-lists' || $uri->getSegment(2) == 'user-add' || $uri->getSegment(2) == 'user-edit') ? 'menu-open' : '';?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -69,7 +69,7 @@
             </ul>
           </li>
 
-          <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-group-lists' || $uri->getSegment(2) == 'user-group-add') ? 'menu-open' : '';?>">
+          <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-group-lists' || $uri->getSegment(2) == 'user-group-add' || $uri->getSegment(2) == 'user-group-edit') ? 'menu-open' : '';?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder"></i>
               <p>
@@ -79,7 +79,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url($locale.'/user-group-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-group-lists') ? 'active' : '';?> ">
+                <a href="<?php echo base_url($locale.'/user-group-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-group-lists' || $uri->getSegment(2) == 'user-group-edit') ? 'active' : '';?> ">
                   <i class="far fa-circle nav-icon"></i>
                   <p><?php echo Lang('Text.UsersGroup.GroupLists');?></p>
                 </a>

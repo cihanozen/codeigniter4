@@ -6,10 +6,12 @@ class User extends BaseController
 {
 
     private $userModel;
+    private $userGroupModel;
 
     public function __construct()
     {
         $this->userModel = new \App\Models\UsersModel();
+        $this->userGroupModel = new \App\Models\UsersGroupModel();
     }
 
     public function index()
@@ -60,10 +62,12 @@ class User extends BaseController
 
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $this->userModel->find($loggedUserId);
+        $userGroup = $this->userGroupModel->getUserGroup();
 
         $data = [
             'username' => @$userInfo['username'],
             'email' => @$userInfo['email'],
+            'userGroupLists' => $userGroup,
             'locale' => $locale,
             'uri' => $uri
         ];
@@ -73,6 +77,9 @@ class User extends BaseController
 
     public function userSave()
     {
+
+
+
 
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $this->userModel->find($loggedUserId);
@@ -154,8 +161,10 @@ class User extends BaseController
     {
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $this->userModel->find($loggedUserId);
+        $userGroup = $this->userGroupModel->getUserGroup();
 
         $data['user'] = $this->userModel->getUser($id)->getRow();
+        $data['userGroupLists'] = $this->userGroupModel->getUserGroup();
         $data['locale'] = $this->request->getLocale();
         $data['uri'] = service('uri');
         $data['username'] = @$userInfo['username'];
@@ -165,20 +174,30 @@ class User extends BaseController
 
     public function userUpdate($id)
     {
+        
+        if(isAllowedModules("user_edit_p")){
+            
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate', 'Düzeleme Yetkiniz Yok!');
+        
+        }else{
 
-        $data = array(
-            'username'  => $this->request->getPost('username'),
-            'password'  => $this->request->getPost('password'),
-            'email'     => $this->request->getPost('email'),
-            'user_bio'  => $this->request->getPost('user_bio'),
-            'group_id'  => $this->request->getPost('group_id'),
-            'status'    => $this->request->getPost('status')
-        );
+            $data = array(
+                'username'  => $this->request->getPost('username'),
+                'password'  => $this->request->getPost('password'),
+                'email'     => $this->request->getPost('email'),
+                'user_bio'  => $this->request->getPost('user_bio'),
+                'group_id'  => $this->request->getPost('group_id'),
+                'status'    => $this->request->getPost('status')
+            );
+    
+            $this->userModel->updateUser($data,$id);
+    
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate',Lang('Text.Users.Edit.Success'));
+           
+        }
+        
 
-        $this->userModel->updateUser($data,$id);
 
-        return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate',Lang('Text.Users.Edit.Success'));
-       
     }
 
     public function userDelete($id)

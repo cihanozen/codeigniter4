@@ -58,6 +58,28 @@ class UserGroup extends BaseController
         return view('Panel/Group/GroupUserLists_v', $data);
     }
 
+    public function userGroupPermission()
+    {
+
+        $uri = service('uri');
+        $locale = $this->request->getLocale();
+        
+        $loggedUserId = session()->get('loggedUser');
+        $userInfo = $this->userModel->find($loggedUserId);
+        $userGroupLists = $this->userGroupModel->findAll();
+
+        $data = [
+            'username' => @$userInfo['username'],
+            'email' => @$userInfo['email'],
+            'userGroupLists' => $userGroupLists,
+            'locale' => $locale,
+            'uri' => $uri
+        ];
+
+
+        return view('Panel/Group/GroupUserPermission_v', $data);
+    }
+
     public function userGroupAdd()
     {
         $uri = service('uri');
@@ -113,9 +135,12 @@ class UserGroup extends BaseController
         else
         {
 
+            $permission = json_encode($this->request->getPost());
+    
             $data = array(
                 'group_name' => $this->request->getPost('group_name'),
-                'group_status' => $this->request->getPost('group_status')
+                'group_status' => $this->request->getPost('group_status'),
+                'group_permission' => $permission
             );
 
             $send = $this->userGroupModel->saveUserGroup($data);
@@ -134,6 +159,10 @@ class UserGroup extends BaseController
         $userInfo = $this->userModel->find($loggedUserId);
 
         $data['userGroup'] = $this->userGroupModel->getUserGroup($id)->getRow();
+
+        $permissions = $data['userGroup']->group_permission;
+
+        $data['permissions'] = json_decode($permissions,true);
         $data['locale'] = $this->request->getLocale();
         $data['uri'] = service('uri');
         $data['username'] = @$userInfo['username'];
@@ -145,13 +174,26 @@ class UserGroup extends BaseController
     public function userGroupUpdate($id)
     {
 
+        #region test log
+        /*
+        echo "<pre>";
+        print_r($permission);
+        echo "</pre>";
+
+        die();
+        */
+        #endregion
+
+        $permission = json_encode($this->request->getPost());
+    
         $locale = $this->request->getLocale();
 
         $uri = service('uri');
 
         $data = array(
             'group_name' => $this->request->getPost('group_name'),
-            'group_status' => $this->request->getPost('group_status')
+            'group_status' => $this->request->getPost('group_status'),
+            'group_permission' => $permission
         );
 
         $this->userGroupModel->updateUserGroup($data,$id);

@@ -35,6 +35,18 @@
 
     <!-- Main content -->
     <section class="content">
+
+    <?php
+      
+      if(!isAllowedModules("user_view_p")){ ?>
+          
+          <div class="callout callout-info">
+              <h5><i class="fas fa-info mr-3"></i> <?php echo Lang('Text.WarningMessage');?></h5>
+              <?php echo Lang('Text.WarningDesc');?>
+          </div>
+           
+    <?php }else{ ?>
+
       <div class="row">
         <div class="col-md-12">
        
@@ -80,9 +92,11 @@
                 <label for="inputClientCompany"><?php echo lang('Text.Users.GroupName');?></label>
                 <select id="inputStatus" name='group_id' class="form-control custom-select">
                   <option selected disabled><?php echo lang('Text.Select');?></option>
-                  <option value="1" <?php echo (set_value('group_id') == 1) ? 'selected' : '' ;?> >Admin</option>
-                  <option value="2" <?php echo (set_value('group_id') == 2) ? 'selected' : '' ;?> >Asistan</option>
-                  <option value="3" <?php echo (set_value('group_id') == 3) ? 'selected' : '' ;?> >Kullanıcı</option>
+
+                  <?php foreach($userGroupLists as $userGroupList){ ?>
+                    <option value="<?php echo $userGroupList['id'];?>" <?php echo (set_value('group_id') == $userGroupList['id']) ? 'selected' : '' ;?> ><?php echo $userGroupList['group_name'];?></option>
+                  <?php } ?>
+
                 </select>
               </div>
               <div class="form-group">
@@ -111,6 +125,10 @@
         </div>
       </div>
       </form>
+
+    <?php } ?>
+
+
     </section>
 
 

@@ -34,7 +34,18 @@
     <!-- Main content -->
     <section class="content">
 
-    <?php if(!empty(session()->getFlashdata('successUpdate'))) : ?>
+    <?php
+      
+      if(!isAllowedModules("user_view_p")){ ?>
+          
+          <div class="callout callout-info">
+              <h5><i class="fas fa-info mr-3"></i> <?php echo Lang('Text.WarningMessage');?></h5>
+              <?php echo Lang('Text.WarningDesc');?>
+          </div>
+           
+    <?php }else{ ?>
+
+      <?php if(!empty(session()->getFlashdata('successUpdate'))) : ?>
         
         <div class="alert alert-success">
             <?php echo session()->getFlashdata('successUpdate'); ?>
@@ -48,11 +59,6 @@
             <div class="card-header">
               <h3 class="card-title"><?php echo lang('Text.UserEdit');?></h3>
 
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-              </div>
             </div>
 
             <form action="<?php echo base_url($locale.'/user-edit/update/'.$uri->getSegment(3))?>" method="POST">
@@ -77,9 +83,11 @@
                 <label for="inputClientCompany"><?php echo lang('Text.Users.GroupName');?></label>
                 <select id="inputStatus" name='group_id' class="form-control custom-select">
                   <option selected disabled><?php echo lang('Text.Select');?></option>
-                  <option value="1" <?php echo ($user->group_id == 1) ? 'selected' : '';?>>Admin</option>
-                  <option value="2" <?php echo ($user->group_id == 2) ? 'selected' : '';?>>Asistan</option>
-                  <option value="3" <?php echo ($user->group_id == 3) ? 'selected' : '';?>>Kullanıcı</option>
+                 
+                  <?php foreach($userGroupLists as $userGroupList){ ?>
+                    <option value="<?php echo $userGroupList['id'];?>" <?php echo ($userGroupList['id'] == $user->group_id) ? 'selected' : '' ;?> ><?php echo $userGroupList['group_name'];?></option>
+                  <?php } ?>
+                  
                 </select>
               </div>
               <div class="form-group">
@@ -100,6 +108,9 @@
         </div>
        
       </div>
+
+      <?php if(isAllowedModules("user_edit_p")){ ?>
+
       <div class="row">
         <div class="col-12">
        
@@ -107,7 +118,16 @@
           <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"><?php echo lang('Text.Users.Button.Cancel');?></a>
         </div>
       </div>
+
+      <?php } ?>
+
       </form>
+
+      
+
+    <?php } ?>
+
+
     </section>
     <!-- /.content -->
   </div>

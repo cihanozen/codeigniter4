@@ -13,6 +13,9 @@ return [
     'Active' => 'Active',
     'Passive' => 'Passive',
 
+    'WarningMessage' => 'Warning Message!',
+    'WarningDesc' => 'You do not have permission to view this page!',
+
     'Users.Username' => 'Username',
     'Users.Password' => 'Password',
     'Users.Email' => 'Email',
@@ -41,6 +44,8 @@ return [
     'UsersGroup.Groups' => 'User Groups',
     'UsersGroup.GroupLists' => 'Group Lists',
     'UserGroup.GroupAdd' => 'Group Add',
+    'UserGroup.GroupEdit' => 'Grup Edit',
+    'UserGroup.GroupPermission' => 'Group Permission',
 
     'UsersGroup.GroupName' => 'Group Name',
     'UsersGroup.GroupStatus' => 'Group Status',
@@ -52,5 +57,14 @@ return [
     'UsersGroup.Edit.Success' => 'User Group updated successfully!',
     'UsersGroup.Add.Success' => 'Adding User Group completed successfully!',
     'UsersGroup.Delete.Success' => 'User Group deleted successfully!',
+
+    'UsersGroup.Permission' => 'Group Permission',
+    'UsersGroup.Permission.Update' => 'Group Permission Update',
+    'UsersGroup.PermissionArea' => 'Permission Area',
+
+    'UsersGroup.Permission.View' => 'View',
+    'UsersGroup.Permission.Add' => 'Add',
+    'UsersGroup.Permission.Edit' => 'Edit',
+    'UsersGroup.Permission.Delete' => 'Delete',
 
 ];

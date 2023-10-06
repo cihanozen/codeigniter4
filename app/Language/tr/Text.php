@@ -13,6 +13,9 @@ return [
     'Select' => 'Seçin',
     'Active' => 'Aktif',
     'Passive' => 'Pasif',
+
+    'WarningMessage' => 'Uyarı Mesajı!',
+    'WarningDesc' => 'Bu Sayfayı Görüntüleme İzniniz Yok!',
     
     'Users.Username' => 'Kullanıcı Adı',
     'Users.Password' => 'Şifre',
@@ -40,8 +43,10 @@ return [
     'Users.Add.Error.ValidEmail' => "Geçerli bir mail adresi yazın!",
 
     'UsersGroup.Groups' => 'Kullanıcı Grupları',
-    'UsersGroup.GroupLists' => 'Grupları Listele',
+    'UsersGroup.GroupLists' => 'Grup Listesi',
     'UserGroup.GroupAdd' => 'Grup Ekle',
+    'UserGroup.GroupEdit' => 'Grup Düzenle',
+    'UserGroup.GroupPermission' => 'Grup İzinleri',
 
     'UsersGroup.GroupName' => 'Grup Adı',
     'UsersGroup.GroupStatus' => 'Grup Durum',
@@ -53,6 +58,16 @@ return [
     'UsersGroup.Edit.Success' => 'Grup başarıyla güncellendi!',
     'UsersGroup.Add.Success' => 'Grup başarıyla eklendi!',
     'UsersGroup.Delete.Success' => 'Grup başarıyla silindi!',
+
+    'UsersGroup.Permission' => 'Grup İzinleri',
+    'UsersGroup.Permission.Update' => 'Grup İzinlerini Güncelle',
+    'UsersGroup.PermissionArea' => 'İzin Alanı',
+
+    'UsersGroup.Permission.View' => 'Görüntüle',
+    'UsersGroup.Permission.Add' => 'Ekle',
+    'UsersGroup.Permission.Edit' => 'Düzenle',
+    'UsersGroup.Permission.Delete' => 'Sil',
+
 
 
     

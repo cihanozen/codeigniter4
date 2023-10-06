@@ -36,4 +36,32 @@ function status($x){
 
 }
 
+function isAllowedModules($moduleName = "")
+{
+
+    $group_id = session()->get('loggedUser')['group_id'];
+
+    $db      = \Config\Database::connect();
+    $builder = $db->table('user_groups');
+
+    $builder->select('users.id,user_groups.id,user_groups.group_permission');
+    $builder->join('users','users.group_id = user_groups.id');
+    $builder->where('user_groups.id', $group_id);
+    $query = $builder->get();
+    $query_result = $query->getResult();
+
+    foreach($query_result as $row){
+        $p = $row->group_permission;
+    }
+ 
+    $permission = json_decode($p,true);
+
+    if (isset($permission[$moduleName])) {
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
 ?>

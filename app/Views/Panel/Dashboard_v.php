@@ -12,6 +12,7 @@
 
 <?php echo view('Panel/inc/Menu');?>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -33,6 +34,17 @@
 
     <!-- Main content -->
     <section class="content">
+
+    <?php
+      
+      if(!isAllowedModules("dashboard_view_p")){ ?>
+          
+          <div class="callout callout-info">
+              <h5><i class="fas fa-info mr-3"></i> Uyarı Mesajı</h5>
+              Bu Sayfayı Görüntüleme İzniniz Yok!
+          </div>
+           
+    <?php }else{ ?>
 
       <!-- Default box -->
       <div class="card">
@@ -58,6 +70,10 @@
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->
+
+    <?php } ?>
+
+
 
     </section>
     <!-- /.content -->

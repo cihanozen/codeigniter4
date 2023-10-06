@@ -34,7 +34,18 @@
     <!-- Main content -->
     <section class="content">
 
-    <?php if(!empty(session()->getFlashdata('successAdd'))) : ?>
+    <?php
+      
+      if(!isAllowedModules("user_view_p")){ ?>
+          
+          <div class="callout callout-info">
+              <h5><i class="fas fa-info mr-3"></i> <?php echo Lang('Text.WarningMessage');?></h5>
+              <?php echo Lang('Text.WarningDesc');?>
+          </div>
+           
+    <?php }else{ ?>
+
+      <?php if(!empty(session()->getFlashdata('successAdd'))) : ?>
         
         <div class="alert alert-success alert-dismissible pb-1">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -105,16 +116,22 @@
                       </td>
                       
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm <?php echo ($user['group_id'] != 1) ? '' : 'disabled';?> " href="<?php echo base_url($locale.'/user-edit').'/'.$user['id'];?>">
+                          <a class="btn btn-info btn-sm" href="<?php echo base_url($locale.'/user-edit').'/'.$user['id'];?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               <?php echo Lang('Text.Users.Button.Edit');?>
                           </a>
-                          <a class="btn btn-danger btn-sm <?php echo ($user['group_id'] != 1) ? '' : 'disabled';?> " href="<?php echo base_url($locale.'/user-lists/delete').'/'.$user['id'];?>">
+
+                          <?php if(isAllowedModules("user_delete_p")){ ?>
+
+                          <a class="btn btn-danger btn-sm" href="<?php echo base_url($locale.'/user-lists/delete').'/'.$user['id'];?>">
                               <i class="fas fa-trash">
                               </i>
                               <?php echo Lang('Text.Users.Button.Delete');?>
                           </a>
+
+                          <?php } ?>
+
                       </td>
                     
                   </tr>
@@ -126,6 +143,10 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
+
+    <?php } ?>
+
+
 
     </section>
     <!-- /.content -->

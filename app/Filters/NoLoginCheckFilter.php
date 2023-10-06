@@ -17,7 +17,7 @@ class NoLoginCheckFilter implements FilterInterface
         {
             return redirect()->to($locale.'/dashboard');
         }
-        
+
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

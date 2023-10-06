@@ -14,7 +14,7 @@ $routes->get('/cikis', 'Auth::logout');
 $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
 
     $routes->get('dashboard', 'Dashboard::index');
-
+  
     // USER
     $routes->get('user-lists', 'User::userLists');
     $routes->get('user-add', 'User::userAdd');
@@ -25,6 +25,7 @@ $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
 
     // GROUP
     $routes->get('user-group-lists', 'UserGroup::userGroupLists');
+    $routes->get('user-group-permission', 'UserGroup::userGroupPermission');
     $routes->get('user-group-add', 'UserGroup::userGroupAdd');
     $routes->get('user-group-edit/(:any)', 'UserGroup::userGroupEdit/$1');
     $routes->post('user-group-edit/update/(:any)', 'UserGroup::userGroupUpdate/$1');

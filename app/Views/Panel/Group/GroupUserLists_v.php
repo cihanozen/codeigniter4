@@ -19,12 +19,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo lang('Text.UsersGroup.Groups');?></h1>
+            <h1><?php echo lang('Text.UsersGroup.GroupLists');?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('Text.Home');?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('Text.UsersGroup.Groups');?></li>
+              <li class="breadcrumb-item active"><?php echo lang('Text.UsersGroup.GroupLists');?></li>
             </ol>
           </div>
         </div>
@@ -34,39 +34,49 @@
     <!-- Main content -->
     <section class="content">
 
-    <?php if(!empty(session()->getFlashdata('successAdd'))) : ?>
-        
-        <div class="alert alert-success alert-dismissible pb-1">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h6><i class="icon fas fa-check"></i><?php echo session()->getFlashdata('successAdd'); ?></h6>
-        </div>
+    <?php
+      
+      if(!isAllowedModules("user_group_view_p")){ ?>
+          
+          <div class="callout callout-info">
+              <h5><i class="fas fa-info mr-3"></i> <?php echo Lang('Text.WarningMessage');?></h5>
+              <?php echo Lang('Text.WarningDesc');?>
+          </div>
+           
+    <?php }else{ ?>
 
-    <?php endif; ?>
+      <?php if(!empty(session()->getFlashdata('successAdd'))) : ?>
+          
+          <div class="alert alert-success alert-dismissible pb-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h6><i class="icon fas fa-check"></i><?php echo session()->getFlashdata('successAdd'); ?></h6>
+          </div>
 
-    <?php if(!empty(session()->getFlashdata('successDelete'))) : ?>
-        
-        <div class="alert alert-success alert-dismissible pb-1">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h6><i class="icon fas fa-check"></i><?php echo session()->getFlashdata('successDelete'); ?></h6>
-        </div>
+      <?php endif; ?>
 
-    <?php endif; ?>
+      <?php if(!empty(session()->getFlashdata('successDelete'))) : ?>
+          
+          <div class="alert alert-success alert-dismissible pb-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h6><i class="icon fas fa-check"></i><?php echo session()->getFlashdata('successDelete'); ?></h6>
+          </div>
 
-    <?php if(!empty(session()->getFlashdata('successUpdate'))) : ?>
-        
-        <div class="alert alert-success alert-dismissible pb-1">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h6><i class="icon fas fa-check"></i><?php echo session()->getFlashdata('successUpdate'); ?></h6>
-        </div>
+      <?php endif; ?>
 
-    <?php endif; ?>
+      <?php if(!empty(session()->getFlashdata('successUpdate'))) : ?>
+          
+          <div class="alert alert-success alert-dismissible pb-1">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              <h6><i class="icon fas fa-check"></i><?php echo session()->getFlashdata('successUpdate'); ?></h6>
+          </div>
+
+      <?php endif; ?>
 
       <!-- Default box -->
       <div class="card">
 
         <div class="card-body p-0">
 
-    
           <table class="table table-striped projects">
               <thead>
                   <tr>
@@ -105,11 +115,17 @@
                               </i>
                               <?php echo Lang('Text.Users.Button.Edit');?>
                           </a>
+
+                          <?php if(isAllowedModules("user_group_delete_p")){ ?>
+
                           <a class="btn btn-danger btn-sm  " href="<?php echo base_url($locale.'/user-group-lists/delete').'/'.$userGroup['id'];?>">
                               <i class="fas fa-trash">
                               </i>
                               <?php echo Lang('Text.Users.Button.Delete');?>
                           </a>
+
+                          <?php } ?>
+
                       </td>
                     
                   </tr>
@@ -121,6 +137,10 @@
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
+
+    <?php } ?>
+
+
 
     </section>
     <!-- /.content -->
