@@ -5,14 +5,23 @@ namespace App\Controllers;
 class UserGroup extends BaseController
 {
 
+    private $userModel;
+    private $userGroupModel;
+
+    public function __construct()
+    {
+        $this->userModel = new \App\Models\UsersModel();
+        $this->userGroupModel = new \App\Models\UsersGroupModel();
+    }
+
     public function index()
     {
 
         $uri = service('uri');
         $locale = $this->request->getLocale();
-        $userModel = new \App\Models\UsersModel();
+        
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
+        $userInfo = $this->userModel->find($loggedUserId);
 
         $data = [
             'username' => @$userInfo['username'],
@@ -31,14 +40,11 @@ class UserGroup extends BaseController
         $uri = service('uri');
         $locale = $this->request->getLocale();
 
-        $userModel = new \App\Models\UsersModel();
-        $userGroupModel = new \App\Models\UsersGroupModel();
-        
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
-        $users = $userModel->getUser();
+        $userInfo = $this->userModel->find($loggedUserId);
+        $users = $this->userModel->getUser();
 
-        $userGroups = $userGroupModel->getUserGroup();
+        $userGroups = $this->userGroupModel->getUserGroup();
 
         $data = [
             'username' => @$userInfo['username'],
@@ -57,11 +63,8 @@ class UserGroup extends BaseController
         $uri = service('uri');
         $locale = $this->request->getLocale();
 
-        $userModel = new \App\Models\UsersModel();
-        $userGroupModel = new \App\Models\UsersGroupModel();
-
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
+        $userInfo = $this->userModel->find($loggedUserId);
 
         $data = [
             'username' => @$userInfo['username'],
@@ -75,11 +78,9 @@ class UserGroup extends BaseController
 
     public function userGroupSave()
     {
-        $userModel = new \App\Models\UsersModel();
-        $userGroupModel = new \App\Models\UsersGroupModel();
+
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
-        $users = $userModel->getUser();
+        $userInfo = $this->userModel->find($loggedUserId);
         
         //$validation = \Config\Services::validation();
         $check = $this->validate([
@@ -117,7 +118,7 @@ class UserGroup extends BaseController
                 'group_status' => $this->request->getPost('group_status')
             );
 
-            $send = $userGroupModel->saveUserGroup($data);
+            $send = $this->userGroupModel->saveUserGroup($data);
 
             if($send){
                 return redirect()->to(base_url($this->viewData['locale'].'/'.'user-group-lists'))->with('successAdd', Lang('Text.UsersGroup.Add.Success'));
@@ -128,14 +129,11 @@ class UserGroup extends BaseController
 
     public function userGroupEdit($id)
     {
-        
-        $userModel = new \App\Models\UsersModel();
-        $userGroupModel = new \App\Models\UsersGroupModel();
 
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
+        $userInfo = $this->userModel->find($loggedUserId);
 
-        $data['userGroup'] = $userGroupModel->getUserGroup($id)->getRow();
+        $data['userGroup'] = $this->userGroupModel->getUserGroup($id)->getRow();
         $data['locale'] = $this->request->getLocale();
         $data['uri'] = service('uri');
         $data['username'] = @$userInfo['username'];
@@ -147,10 +145,6 @@ class UserGroup extends BaseController
     public function userGroupUpdate($id)
     {
 
-
-        $userModel = new \App\Models\UsersModel();
-        $userGroupModel = new \App\Models\UsersGroupModel();
-
         $locale = $this->request->getLocale();
 
         $uri = service('uri');
@@ -160,7 +154,7 @@ class UserGroup extends BaseController
             'group_status' => $this->request->getPost('group_status')
         );
 
-        $userGroupModel->updateUserGroup($data,$id);
+        $this->userGroupModel->updateUserGroup($data,$id);
 
         return redirect()->to(base_url($this->request->getLocale().'/user-group-lists'))->with('successUpdate',Lang('Text.UsersGroup.Edit.Success'));
        
@@ -169,12 +163,10 @@ class UserGroup extends BaseController
     public function userGroupDelete($id)
     {
 
-        $userGroupModel = new \App\Models\UsersGroupModel();
-        $userGroupModel->deleteUserGroup($id);
+        $this->userGroupModel->deleteUserGroup($id);
 
         return redirect()->to(base_url($this->request->getLocale().'/user-group-lists'))->with('successDelete',Lang('Text.UsersGroup.Delete.Success'));
 
     }
-
 
 }

@@ -5,14 +5,21 @@ namespace App\Controllers;
 class User extends BaseController
 {
 
+    private $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new \App\Models\UsersModel();
+    }
+
     public function index()
     {
 
         $uri = service('uri');
         $locale = $this->request->getLocale();
-        $userModel = new \App\Models\UsersModel();
+
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
+        $userInfo = $this->userModel->find($loggedUserId);
 
         $data = [
             'username' => @$userInfo['username'],
@@ -30,10 +37,10 @@ class User extends BaseController
 
         $uri = service('uri');
         $locale = $this->request->getLocale();
-        $userModel = new \App\Models\UsersModel();
+
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
-        $users = $userModel->getUser();
+        $userInfo = $this->userModel->find($loggedUserId);
+        $users = $this->userModel->getUser();
 
         $data = [
             'username' => @$userInfo['username'],
@@ -50,9 +57,9 @@ class User extends BaseController
     {
         $uri = service('uri');
         $locale = $this->request->getLocale();
-        $userModel = new \App\Models\UsersModel();
+
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
+        $userInfo = $this->userModel->find($loggedUserId);
 
         $data = [
             'username' => @$userInfo['username'],
@@ -66,10 +73,9 @@ class User extends BaseController
 
     public function userSave()
     {
-        $userModel = new \App\Models\UsersModel();
+
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
-        $users = $userModel->getUser();
+        $userInfo = $this->userModel->find($loggedUserId);
         
         //$validation = \Config\Services::validation();
         $check = $this->validate([
@@ -134,7 +140,7 @@ class User extends BaseController
             'status'   => $this->request->getPost('status')
         );
 
-        $send = $userModel->saveUser($data);
+        $send = $this->userModel->saveUser($data);
 
         if($send){
             return redirect()->to(base_url($this->viewData['locale'].'/'.'user-lists'))->with('successAdd', Lang('Text.Users.Add.Success'));
@@ -146,12 +152,10 @@ class User extends BaseController
 
     public function userEdit($id)
     {
-        $userModel = new \App\Models\UsersModel();
-
         $loggedUserId = session()->get('loggedUser');
-        $userInfo = $userModel->find($loggedUserId);
+        $userInfo = $this->userModel->find($loggedUserId);
 
-        $data['user'] = $userModel->getUser($id)->getRow();
+        $data['user'] = $this->userModel->getUser($id)->getRow();
         $data['locale'] = $this->request->getLocale();
         $data['uri'] = service('uri');
         $data['username'] = @$userInfo['username'];
@@ -162,12 +166,6 @@ class User extends BaseController
     public function userUpdate($id)
     {
 
-
-        $userModel = new \App\Models\UsersModel();
-        $locale = $this->request->getLocale();
-
-        $uri = service('uri');
-
         $data = array(
             'username'  => $this->request->getPost('username'),
             'password'  => $this->request->getPost('password'),
@@ -177,22 +175,19 @@ class User extends BaseController
             'status'    => $this->request->getPost('status')
         );
 
-        $userModel->updateUser($data,$id);
+        $this->userModel->updateUser($data,$id);
 
-        return redirect()->to(base_url($this->request->getLocale().'/user-lists'))->with('successUpdate',Lang('Text.Users.Edit.Success'));
+        return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate',Lang('Text.Users.Edit.Success'));
        
     }
 
     public function userDelete($id)
     {
 
-        $userModel = new \App\Models\UsersModel();
-        $userModel->deleteUser($id);
+        $this->userModel->deleteUser($id);
 
-        return redirect()->to(base_url($this->request->getLocale().'/user-lists'))->with('successDelete',Lang('Text.Users.Delete.Success'));
-
+        return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete',Lang('Text.Users.Delete.Success'));
 
     }
-
 
 }
