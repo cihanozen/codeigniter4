@@ -7,7 +7,7 @@ class UsersGroupModel extends Model
 
     protected $table = 'user_groups';
     protected $primaryKey = 'id';
-    protected $allowedField = ['group_name', 'group_permission', 'group_status'];
+    protected $allowedField = ['id', 'group_name', 'group_permission', 'group_status'];
 
     public function getUserGroup($id = false)
     {

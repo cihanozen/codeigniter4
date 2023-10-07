@@ -63,6 +63,15 @@
 
       <?php endif; ?>
 
+      <?php if(!empty(session()->getFlashdata('permissionError'))) : ?>
+        
+        <div class="alert alert-danger alert-dismissible pb-1">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h6><i class="icon fas fa-exclamation-triangle"></i><?php echo session()->getFlashdata('permissionError'); ?></h6>
+        </div>
+
+    <?php endif; ?>
+
       <?php if(!empty(session()->getFlashdata('successUpdate'))) : ?>
           
           <div class="alert alert-success alert-dismissible pb-1">
@@ -110,7 +119,7 @@
                       </td>
                       
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="<?php echo base_url($locale.'/user-group-edit').'/'.$userGroup['id'];?>">
+                          <a class="btn btn-info btn-sm <?php echo ($userGroup['id'] == 1) ? 'disabled' : ''; ?>" href="<?php echo base_url($locale.'/user-group-edit').'/'.$userGroup['id'];?>">
                               <i class="fas fa-pencil-alt">
                               </i>
                               <?php echo Lang('Text.Users.Button.Edit');?>
@@ -118,7 +127,7 @@
 
                           <?php if(isAllowedModules("user_group_delete_p")){ ?>
 
-                          <a class="btn btn-danger btn-sm  " href="<?php echo base_url($locale.'/user-group-lists/delete').'/'.$userGroup['id'];?>">
+                          <a class="btn btn-danger btn-sm <?php echo ($userGroup['id'] == 1) ? 'disabled' : ''; ?> " href="<?php echo base_url($locale.'/user-group-lists/delete').'/'.$userGroup['id'];?>">
                               <i class="fas fa-trash">
                               </i>
                               <?php echo Lang('Text.Users.Button.Delete');?>

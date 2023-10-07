@@ -105,7 +105,7 @@
                       <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Delete');?></th>
                     </tr>
                   </thead>
-                 
+                  <input type="hidden" name='group_id' value="<?php echo $userGroup->id; ?>">
                   <tbody>
                     <tr>
                       <td>Dashboard</td>
@@ -113,7 +113,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['dashboard_view_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_view_p" name="dashboard_view_p">
+                          <?php //if($userGroup->group_status == 1) { echo 'checked'; }?>
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_view_p" name="dashboard_view_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?>>
                           <label for="dashboard_view_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -121,7 +122,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['dashboard_save_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_save_p" name="dashboard_save_p" >
+                        
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_save_p" name="dashboard_save_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="dashboard_save_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -129,7 +131,8 @@
                         <div class="custom-control custom-checkbox">
                             <input
                             <?php echo isset($permissions['dashboard_edit_p']) ? 'checked' : '' ; ?>
-                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_edit_p"name="dashboard_edit_p" >
+                         
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_edit_p"name="dashboard_edit_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                             <label for="dashboard_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
                           </div>  
                       </td>
@@ -137,7 +140,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['dashboard_delete_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_delete_p" name="dashboard_delete_p" >
+                          
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="dashboard_delete_p" name="dashboard_delete_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="dashboard_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -148,7 +152,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['user_view_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_view_p" name="user_view_p">
+                          
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_view_p" name="user_view_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="user_view_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -156,7 +161,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['user_save_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_save_p" name="user_save_p" >
+                       
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_save_p" name="user_save_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="user_save_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -164,7 +170,8 @@
                         <div class="custom-control custom-checkbox">
                             <input
                             <?php echo isset($permissions['user_edit_p']) ? 'checked' : '' ; ?>
-                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_edit_p"name="user_edit_p" >
+                            
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_edit_p" name="user_edit_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                             <label for="user_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
                           </div>  
                       </td>
@@ -172,7 +179,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['user_delete_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_delete_p" name="user_delete_p" >
+
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_delete_p" name="user_delete_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="user_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -183,7 +191,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['user_group_view_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_view_p" name="user_group_view_p" >
+                         
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_view_p" name="user_group_view_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="user_group_view_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -191,7 +200,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['user_group_save_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_save_p" name="user_group_save_p">
+                       
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_save_p" name="user_group_save_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="user_group_save_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>
@@ -199,7 +209,8 @@
                         <div class="custom-control custom-checkbox">
                             <input
                             <?php echo isset($permissions['user_group_edit_p']) ? 'checked' : '' ; ?>
-                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_edit_p"name="user_group_edit_p">
+                          
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_edit_p"name="user_group_edit_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                             <label for="user_group_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
                           </div>  
                       </td>
@@ -207,7 +218,8 @@
                         <div class="custom-control custom-checkbox">
                           <input
                           <?php echo isset($permissions['user_group_delete_p']) ? 'checked' : '' ; ?>
-                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_delete_p" name="user_group_delete_p">
+                    
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="user_group_delete_p" name="user_group_delete_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
                           <label for="user_group_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
                         </div>
                       </td>

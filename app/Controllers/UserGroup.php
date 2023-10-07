@@ -155,6 +155,11 @@ class UserGroup extends BaseController
     public function userGroupEdit($id)
     {
 
+        if($id == 1)
+        {
+            return redirect()->to(base_url($this->viewData['locale'].'/user-group-lists'))->with('permissionError', Lang('Text.Users.Edit.Error.Admin'));
+        }
+
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $this->userModel->find($loggedUserId);
 
@@ -174,16 +179,6 @@ class UserGroup extends BaseController
     public function userGroupUpdate($id)
     {
 
-        #region test log
-        /*
-        echo "<pre>";
-        print_r($permission);
-        echo "</pre>";
-
-        die();
-        */
-        #endregion
-
         $permission = json_encode($this->request->getPost());
     
         $locale = $this->request->getLocale();
@@ -193,7 +188,7 @@ class UserGroup extends BaseController
         $data = array(
             'group_name' => $this->request->getPost('group_name'),
             'group_status' => $this->request->getPost('group_status'),
-            'group_permission' => $permission
+            'group_permission' => ($this->request->getPost('group_status') == 1) ? $permission : '' ,
         );
 
         $this->userGroupModel->updateUserGroup($data,$id);

@@ -19,7 +19,7 @@ class Dashboard extends BaseController
         ];
 
         return view('Panel/Dashboard_v', $data);
-
+     
     }
 
     public function dark_mode()

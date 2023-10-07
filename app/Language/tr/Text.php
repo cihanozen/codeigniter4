@@ -31,6 +31,7 @@ return [
     'Users.Button.Delete' => 'Sil',
     
     'Users.Edit.Success' => 'Kullanıcı başarıyla güncellendi!',
+    'Users.Edit.Permission' => 'Düzenleme izni yok!',
     'Users.Add.Success' => 'Kullanıcı başarıyla eklendi!',
     'Users.Delete.Success' => 'Kullanıcı başarıyla silindi!',
 
@@ -41,6 +42,8 @@ return [
     'Users.Add.Error.Group' => "Lütfen kullanıcının yönetim grubunu seçin!",
     'Users.Add.Error.IsUnique' => "Bu mail adresini bir başka kullanıcı kullanıyor!",
     'Users.Add.Error.ValidEmail' => "Geçerli bir mail adresi yazın!",
+
+    'Users.Edit.Error.Admin' => 'Root kullanıcısı için değişiklik yapılamaz!',
 
     'UsersGroup.Groups' => 'Kullanıcı Grupları',
     'UsersGroup.GroupLists' => 'Grup Listesi',

@@ -92,7 +92,7 @@
                 <label for="inputClientCompany"><?php echo lang('Text.Users.GroupName');?></label>
                 <select id="inputStatus" name='group_id' class="form-control custom-select">
                   <option selected disabled><?php echo lang('Text.Select');?></option>
-
+                
                   <?php foreach($userGroupLists as $userGroupList){ ?>
                     <option value="<?php echo $userGroupList['id'];?>" <?php echo (set_value('group_id') == $userGroupList['id']) ? 'selected' : '' ;?> ><?php echo $userGroupList['group_name'];?></option>
                   <?php } ?>

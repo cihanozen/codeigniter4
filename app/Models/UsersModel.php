@@ -12,7 +12,9 @@ class UsersModel extends Model
     public function getUser($id = false)
     {
         if($id === false)
-        {
+        {   
+            $this->select('*');
+            $this->join('user_groups', 'user_groups.id = users.id');
             return $this->findAll();
         }
         else

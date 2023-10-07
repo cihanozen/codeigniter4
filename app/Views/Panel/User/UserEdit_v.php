@@ -67,10 +67,7 @@
                 <label for="inputName"><?php echo lang('Text.Users.Username');?></label>
                 <input type="text" name="username" value="<?php echo $user->username; ?>" id="inputName" class="form-control" autocomplete="off">
               </div>
-              <div class="form-group">
-                <label for="inputName"><?php echo lang('Text.Users.Password');?></label>
-                <input type="password" name="password" id="inputName" class="form-control" autocomplete="off">
-              </div>
+             
               <div class="form-group">
                 <label for="inputName"><?php echo lang('Text.Users.Email');?></label>
                 <input type="text" name="email" value="<?php echo $user->email; ?>" id="inputName" class="form-control" autocomplete="off">

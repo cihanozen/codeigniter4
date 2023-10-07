@@ -30,6 +30,7 @@ return [
     'Users.Button.Delete' => 'Delete',
 
     'Users.Edit.Success' => 'User updated successfully!',
+    'Users.Edit.Permission' => 'No editing permissions!',
     'Users.Add.Success' => 'Adding user completed successfully!',
     'Users.Delete.Success' => 'User deleted successfully!',
 
@@ -40,6 +41,8 @@ return [
     'Users.Add.Error.Group' => "Please select the user's management group!",
     'Users.Add.Error.IsUnique' => "Another user is using this e-mail address!",
     'Users.Add.Error.ValidEmail' => "Type a valid email address!",
+
+    'Users.Edit.Error.Admin' => 'No changes can be made for the root user!',
 
     'UsersGroup.Groups' => 'User Groups',
     'UsersGroup.GroupLists' => 'Group Lists',

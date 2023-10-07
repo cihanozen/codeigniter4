@@ -78,12 +78,10 @@ class User extends BaseController
     public function userSave()
     {
 
-
-
-
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $this->userModel->find($loggedUserId);
-        
+        $userGroup = $this->userGroupModel->getUserGroup();
+
         //$validation = \Config\Services::validation();
         $check = $this->validate([
             'username' => [
@@ -123,42 +121,47 @@ class User extends BaseController
         if(!$check)
         {
 
-
             return view('Panel/User/UserAdd_v', [
               'username' => @$userInfo['username'],
               'email' => @$userInfo['email'],
+              'userGroupLists' => $userGroup,
               'locale' => $this->viewData['locale'],
               'uri' => $this->viewData['uri'],
               'errors' => $this->validator->getErrors()
             ]);
             
-          
-
         }
         else
         {
 
-        $data = array(
-            'username' => $this->request->getPost('username'),
-            'password' => $this->request->getPost('password'),
-            'email'    => $this->request->getPost('email'),
-            'user_bio' => $this->request->getPost('user_bio'),
-            'group_id' => $this->request->getPost('group_id'),
-            'status'   => $this->request->getPost('status')
-        );
+            $data = array(
+                'username' => $this->request->getPost('username'),
+                'password' => $this->request->getPost('password'),
+                'email'    => $this->request->getPost('email'),
+                'user_bio' => $this->request->getPost('user_bio'),
+                'group_id' => $this->request->getPost('group_id'),
+                'status'   => $this->request->getPost('status')
+            );
 
-        $send = $this->userModel->saveUser($data);
+            $send = $this->userModel->saveUser($data);
 
-        if($send){
-            return redirect()->to(base_url($this->viewData['locale'].'/'.'user-lists'))->with('successAdd', Lang('Text.Users.Add.Success'));
-        }
+            if($send){
+                return redirect()->to(base_url($this->viewData['locale'].'/'.'user-lists'))->with('successAdd', Lang('Text.Users.Add.Success'));
+            }
 
-        
         }
     }
 
     public function userEdit($id)
     {
+
+        //$user_id = session()->get('loggedUser')['user_id'];
+        
+        if($id == 1)
+        {
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete', Lang('Text.Users.Edit.Error.Admin'));
+        }
+    
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $this->userModel->find($loggedUserId);
         $userGroup = $this->userGroupModel->getUserGroup();
@@ -175,23 +178,22 @@ class User extends BaseController
     public function userUpdate($id)
     {
         
-        if(isAllowedModules("user_edit_p")){
+        if(!isAllowedModules("user_edit_p")){
             
-            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate', 'Düzeleme Yetkiniz Yok!');
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete', Lang('Text.Users.Edit.Permission'));
         
         }else{
 
             $data = array(
                 'username'  => $this->request->getPost('username'),
-                'password'  => $this->request->getPost('password'),
                 'email'     => $this->request->getPost('email'),
                 'user_bio'  => $this->request->getPost('user_bio'),
                 'group_id'  => $this->request->getPost('group_id'),
                 'status'    => $this->request->getPost('status')
             );
-    
+
             $this->userModel->updateUser($data,$id);
-    
+
             return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate',Lang('Text.Users.Edit.Success'));
            
         }
