@@ -22,5 +22,22 @@ class Dashboard extends BaseController
 
     }
 
+    public function dark_mode()
+    {
+
+        $dark_mode = session()->get('loggedUser')['dark_mode'];
+
+        if($dark_mode == 0)
+        {
+            $_SESSION['loggedUser']['dark_mode'] = 1;
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+        else
+        {
+            $_SESSION['loggedUser']['dark_mode'] = 0;
+            return redirect()->to($_SERVER['HTTP_REFERER']);
+        }
+
+    }
 
 }

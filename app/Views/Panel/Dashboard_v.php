@@ -3,7 +3,7 @@
 
 <?php echo view('Panel/inc/Header');?>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
 <!-- Site wrapper -->
 
 <div class="wrapper">
@@ -24,7 +24,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><?php echo lang('Text.Home');?></a></li>
+              <li class="breadcrumb-item accent-olive"><a href="#"><?php echo lang('Text.Home');?></a></li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div>
@@ -50,7 +50,6 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Title</h3>
-
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
               <i class="fas fa-minus"></i>

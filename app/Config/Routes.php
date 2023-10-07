@@ -14,6 +14,7 @@ $routes->get('/cikis', 'Auth::logout');
 $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
 
     $routes->get('dashboard', 'Dashboard::index');
+    $routes->get('dark-mode', 'Dashboard::dark_mode');
   
     // USER
     $routes->get('user-lists', 'User::userLists');

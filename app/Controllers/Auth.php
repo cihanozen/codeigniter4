@@ -65,7 +65,8 @@ class Auth extends BaseController
                         'user_id' => $user_id,
                         'group_id' => $userGroup_id,
                         'email' => $user_email,
-                        'username' => $username
+                        'username' => $username,
+                        'dark_mode' => 0
                     ];
 
                     session()->set('loggedUser', $sessionData);

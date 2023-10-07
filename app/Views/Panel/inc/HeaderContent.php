@@ -142,13 +142,12 @@
         </div>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="<?php echo base_url($locale.'/dark-mode');?>">
+         <i class="fa fa-moon" style='color: <?php echo (session()->get('loggedUser')['dark_mode'] == 0) ? 'gray' : 'blue';?> '></i>
         </a>
       </li>
 
-    
     </ul>
   </nav>
   <!-- /.navbar -->
