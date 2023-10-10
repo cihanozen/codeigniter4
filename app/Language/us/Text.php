@@ -1,0 +1,80 @@
+<?php
+        return [
+        // Header
+            'Home'                              => 'Home',
+            'Logout'                            => 'Logout',
+        // Menu
+            'Users'                             => 'Users',
+            'UserLists'                         => 'User Lists',
+            'UserAdd'                           => 'User Add ',
+            'UserGroups'                        => 'User Groups',
+            'GroupLists'                        => 'Group Lists',
+            'GroupAdd'                          => 'Group Add',
+            'LanguageManagement'                => 'Languages',
+            'LanguageLists'                     => 'Language Lists',
+            'AddNewLanguage'                    => 'Add New Language',
+        // Buttons and Inputs
+            'SaveButton'                        => 'Save',
+            'UpdateButton'                      => 'Update',
+            'EditButton'                        => 'Edit',
+            'DeleteButton'                      => 'Delete',
+            'CancelButton'                      => 'Cancel',
+            'TranslationButton'                 => 'Translation',
+            'Select'                            => 'Select',
+        // Users
+            'Username'                          => 'Username',
+            'GroupName'                         => 'Group Name',
+            'Status'                            => 'Status',
+            'Active'                            => 'Active',
+            'Passive'                           => 'Passive',
+            'Email'                             => 'Email',
+            'Password'                          => 'Password',
+            'UserBio'                           => 'User Bio',
+            'UserEdit'                          => 'User Edit',
+            'SuccessSave'                       => 'Adding user completed successfully!',
+            'SuccessUpdate'                     => 'User updated successfully!',
+            'SuccessDelete'                     => 'User deleted successfully!',
+            'PermissionEditError'               => 'No editing permissions!',
+            'AdminPermissionError'              => 'No changes can be made for the root user!',
+            'UsernameError'                     => 'Please write the username!',
+            'PasswordError'                     => 'Please enter a password!',
+            'EmailError'                        => 'Please write an email address!',
+            'UserBioError'                      => 'Please write some information about the user!',
+            'StatusError'                       => 'You must choose the users environment!',
+            'GroupNameError'                    => 'Please select the users management group!',
+            'ValidEmailError'                   => 'Type a valid email address!',
+            'IsUniqueEmailError'                => 'Another user is using this e-mail address!',
+        // User Groups
+            'UserGroupEdit'                     => 'Group Edit',
+            'UserGroupName'                     => 'Group Name',
+            'UserGroupStatus'                   => 'Group Status',
+            'UserGroupPermission'               => 'Group Permission',
+            'PermissionArea'                    => 'Permission Area',
+            'PermissionView'                    => 'View',
+            'PermissionAdd'                     => 'Add',
+            'PermissionEdit'                    => 'Edit',
+            'PermissionDelete'                  => 'Delete',
+            'UserGroupSuccessSave'              => 'User Group added successfully!',
+            'UserGroupSuccessUpdate'            => 'User Group updated successfully!',
+            'UserGroupSuccessDelete'            => 'User Group deleted successfully!',
+            'UserGroupNameError'                => 'Please write a group name!',
+            'UserGroupStatusError'              => 'Please select the status group!',
+            'PermissionUserGroupEditError'      => 'No editing permissions!',
+        // Languages
+            'TranslationPage'                   => 'Translation Page',
+            'LanguageTitle'                     => 'Language Title',
+            'ShortName'                         => 'Short Name',
+            'Flag'                              => 'Flag',
+            'LanguageStatus'                    => 'Status',
+            'CreationDate'                      => 'Creation Date',
+            'DefaultLanguage'                   => 'Default Language',
+            'TranslateSuccessSave'              => 'Translation was done successfully!',
+            'LanguageSuccessSave'               => 'The new language has been successfully registered!',
+            'LanguageSuccessDelete'             => 'Language successfully deleted!',
+            
+            
+            
+            
+            
+        ];
+        ?>

@@ -125,7 +125,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="flag-icon flag-icon-<?php echo ($locale == 'en') ? 'us' : 'tr'; ?>"></i>
+          <i class="flag-icon flag-icon-<?php echo ($locale == 'us') ? 'us' : 'tr'; ?>"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right p-0">
          
@@ -135,7 +135,7 @@
             <i class="flag-icon flag-icon-tr mr-2"></i> Türkçe 
           </a>
           
-          <a href="<?php echo base_url("en/").$uri->getSegment(2).'/'.($uri->getSegment(3) != 'save' ? $uri->getSegment(3) : '')?>" class="dropdown-item <?php echo ($locale == 'en') ? 'active' : ''; ?>">
+          <a href="<?php echo base_url("us/").$uri->getSegment(2).'/'.($uri->getSegment(3) != 'save' ? $uri->getSegment(3) : '')?>" class="dropdown-item <?php echo ($locale == 'us') ? 'active' : ''; ?>">
             <i class="flag-icon flag-icon-us mr-2"></i> English  
           </a>
 

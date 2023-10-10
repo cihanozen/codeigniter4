@@ -73,7 +73,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-folder"></i>
               <p>
-                <?php echo Lang('Text.UsersGroup.Groups');?>
+                <?php echo Lang('Text.UserGroups');?>
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -81,15 +81,40 @@
               <li class="nav-item">
                 <a href="<?php echo base_url($locale.'/user-group-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-group-lists' || $uri->getSegment(2) == 'user-group-edit') ? 'active' : '';?> ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p><?php echo Lang('Text.UsersGroup.GroupLists');?></p>
+                  <p><?php echo Lang('Text.GroupLists');?></p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url($locale.'/user-group-add')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'user-group-add') ? 'active' : '';?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p><?php echo Lang('Text.UserGroup.GroupAdd');?></p>
+                  <p><?php echo Lang('Text.GroupAdd');?></p>
                 </a>
               </li>
+            </ul>
+          </li>
+
+          <li class="nav-item <?php echo ($uri->getSegment(2) == 'language-lists' || $uri->getSegment(2) == 'language-add' || $uri->getSegment(2) == 'language-edit' || $uri->getSegment(3) != '' and $uri->getSegment(2) != 'user-group-edit') ? 'menu-open' : '';?>">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-globe"></i>
+              <p>
+                <?php echo Lang('Text.LanguageManagement');?>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/language-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'language-lists' || $uri->getSegment(2) == 'language-edit' || $uri->getSegment(2) == 'language-translate' ) ? 'active' : '';?> ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.LanguageLists');?></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/language-add')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'language-add') ? 'active' : '';?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.AddNewLanguage');?></p>
+                </a>
+              </li>
+            
             </ul>
           </li>
 

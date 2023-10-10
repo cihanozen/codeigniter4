@@ -1,78 +1,80 @@
 <?php
-
-return [
-    'Home' => 'Anasayfa',
-    'Logout' => 'Çıkış',
-    'Users' => 'Kullanıcılar',
-    'UserLists' => 'Kullanıcı Listesi',
-    'UserAdd' => 'Kullanıcı Ekle',
-    'UserEdit' => 'Kullanıcı Düzenle',
-    
-    'NewUserAdd' => 'Yeni Kullanıcı Ekle',
-
-    'Select' => 'Seçin',
-    'Active' => 'Aktif',
-    'Passive' => 'Pasif',
-
-    'WarningMessage' => 'Uyarı Mesajı!',
-    'WarningDesc' => 'Bu Sayfayı Görüntüleme İzniniz Yok!',
-    
-    'Users.Username' => 'Kullanıcı Adı',
-    'Users.Password' => 'Şifre',
-    'Users.Email' => 'Email',
-    'Users.GroupName' => 'Grup Adı',
-    'Users.Status' => 'Durum',
-    'Users.UserBio' => 'Kullancı Bilgileri',
-
-    'Users.Button.Save' => 'Kaydet',
-    'Users.Button.Edit' => 'Düzenle',
-    'Users.Button.Update' => 'Güncelle',
-    'Users.Button.Cancel' => 'İptal',
-    'Users.Button.Delete' => 'Sil',
-    
-    'Users.Edit.Success' => 'Kullanıcı başarıyla güncellendi!',
-    'Users.Edit.Permission' => 'Düzenleme izni yok!',
-    'Users.Add.Success' => 'Kullanıcı başarıyla eklendi!',
-    'Users.Delete.Success' => 'Kullanıcı başarıyla silindi!',
-
-    'Users.Add.Error.Username' => 'Lütfen bir kullanıcı adı girin!',
-    'Users.Add.Error.Password' => 'Lütfen bir şifre girin',
-    'Users.Add.Error.Email' => 'Lütfen bir email adresi yazın!',
-    'Users.Add.Error.Status' => "Kullanıcının durumunu seçmelisiniz!",
-    'Users.Add.Error.Group' => "Lütfen kullanıcının yönetim grubunu seçin!",
-    'Users.Add.Error.IsUnique' => "Bu mail adresini bir başka kullanıcı kullanıyor!",
-    'Users.Add.Error.ValidEmail' => "Geçerli bir mail adresi yazın!",
-
-    'Users.Edit.Error.Admin' => 'Root kullanıcısı için değişiklik yapılamaz!',
-
-    'UsersGroup.Groups' => 'Kullanıcı Grupları',
-    'UsersGroup.GroupLists' => 'Grup Listesi',
-    'UserGroup.GroupAdd' => 'Grup Ekle',
-    'UserGroup.GroupEdit' => 'Grup Düzenle',
-    'UserGroup.GroupPermission' => 'Grup İzinleri',
-
-    'UsersGroup.GroupName' => 'Grup Adı',
-    'UsersGroup.GroupStatus' => 'Grup Durum',
-    'UsersGroup.NewGroupAdd' => 'Yeni Grup Ekle',
-
-    'UsersGroup.Error.GroupName' => 'Lütfen bir grup adı girin!',
-    'UsersGroup.Error.GroupStatus' => 'Lütfen grubun durumunu seçin!',
-
-    'UsersGroup.Edit.Success' => 'Grup başarıyla güncellendi!',
-    'UsersGroup.Add.Success' => 'Grup başarıyla eklendi!',
-    'UsersGroup.Delete.Success' => 'Grup başarıyla silindi!',
-
-    'UsersGroup.Permission' => 'Grup İzinleri',
-    'UsersGroup.Permission.Update' => 'Grup İzinlerini Güncelle',
-    'UsersGroup.PermissionArea' => 'İzin Alanı',
-
-    'UsersGroup.Permission.View' => 'Görüntüle',
-    'UsersGroup.Permission.Add' => 'Ekle',
-    'UsersGroup.Permission.Edit' => 'Düzenle',
-    'UsersGroup.Permission.Delete' => 'Sil',
-
-
-
-    
-
-];
+        return [
+        // Header
+            'Home'                              => 'Anasayfa',
+            'Logout'                            => 'Çıkış',
+        // Menu
+            'Users'                             => 'Kullanıcılar',
+            'UserLists'                         => 'Kullanıcı Listesi',
+            'UserAdd'                           => 'Kullanıcı Ekle',
+            'UserGroups'                        => 'Kullanıcı Grupları',
+            'GroupLists'                        => 'Grup Listesi',
+            'GroupAdd'                          => 'Grup Ekle',
+            'LanguageManagement'                => 'Dil Yönetimi',
+            'LanguageLists'                     => 'Dil Listesi',
+            'AddNewLanguage'                    => 'Yeni Dil Ekle',
+        // Buttons and Inputs
+            'SaveButton'                        => 'Kaydet',
+            'UpdateButton'                      => 'Güncelle',
+            'EditButton'                        => 'Düzenle',
+            'DeleteButton'                      => 'Sil',
+            'CancelButton'                      => 'İptal',
+            'TranslationButton'                 => 'Çeviri',
+            'Select'                            => 'Seçin',
+        // Users
+            'Username'                          => 'Kullanıcı Adı',
+            'GroupName'                         => 'Grup Adı',
+            'Status'                            => 'Durum',
+            'Active'                            => 'Aktif',
+            'Passive'                           => 'Pasif',
+            'Email'                             => 'Eposta',
+            'Password'                          => 'Şifre',
+            'UserBio'                           => 'Kullanıcı Hakkında',
+            'UserEdit'                          => 'Kullanıcı Düzenle',
+            'SuccessSave'                       => 'Kullanıcı başarıyla kaydedildi!',
+            'SuccessUpdate'                     => 'Kullanıcı başarıyla güncellendi!',
+            'SuccessDelete'                     => 'Kullanıcı başarıyla silindi!',
+            'PermissionEditError'               => 'Düzenleme izni yok!',
+            'AdminPermissionError'              => 'Kök kullanıcı için hiçbir değişiklik yapılamaz!',
+            'UsernameError'                     => 'Lütfen kullanıcı adı yazın!',
+            'PasswordError'                     => 'Lütfen şifre yazın!',
+            'EmailError'                        => 'Eposta adresi boş bırakılamaz!',
+            'UserBioError'                      => 'Lütfen kullanıcı hakkında bilgi yazın!',
+            'StatusError'                       => 'Durum seçimi yapmalısınız!',
+            'GroupNameError'                    => 'Lütfen kullanıcıya ait bir grup seçin!',
+            'ValidEmailError'                   => 'Geçerli bir eposta adresi oluşturmalısınız!',
+            'IsUniqueEmailError'                => 'Bu eposta adresi zaten kullanılıyor!',
+        // User Groups
+            'UserGroupEdit'                     => 'Grup Düzenle',
+            'UserGroupName'                     => 'Grup Adı',
+            'UserGroupStatus'                   => 'Grup Durumu',
+            'UserGroupPermission'               => 'Grup İzinleri',
+            'PermissionArea'                    => 'İzin Alanları',
+            'PermissionView'                    => 'Görüntüle',
+            'PermissionAdd'                     => 'Ekle',
+            'PermissionEdit'                    => 'Düzenle',
+            'PermissionDelete'                  => 'Sil',
+            'UserGroupSuccessSave'              => 'Kullanıcı Grubu başarıyla eklendi!',
+            'UserGroupSuccessUpdate'            => 'Kullanıcı Grubu başarıyla güncellendi!',
+            'UserGroupSuccessDelete'            => 'Kullanıcı Grubu başarıyla silindi!',
+            'UserGroupNameError'                => 'Lütfen bir grup adı yazın!',
+            'UserGroupStatusError'              => 'Lütfen durumu boş bırakmayın!',
+            'PermissionUserGroupEditError'      => 'Düzenleme yetkiniz yok!',
+        // Languages
+            'TranslationPage'                   => 'Çeviri Sayfası',
+            'LanguageTitle'                     => 'Dil Başlık',
+            'ShortName'                         => 'Kısaltma',
+            'Flag'                              => 'Bayrak',
+            'LanguageStatus'                    => 'Durum',
+            'CreationDate'                      => 'Oluşturma Tarihi',
+            'DefaultLanguage'                   => 'Varsayılan Dil',
+            'TranslateSuccessSave'              => 'Çeviri işlemi başarıyla yapıldı!',
+            'LanguageSuccessSave'               => 'Yeni dil başarıyla kaydedildi!',
+            'LanguageSuccessDelete'             => 'Dil başarıyla silindi!',
+            
+            
+            
+            
+            
+        ];
+        ?>

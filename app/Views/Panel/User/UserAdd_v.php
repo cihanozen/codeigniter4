@@ -3,7 +3,7 @@
 
 <?php echo view('Panel/inc/Header');?>
 
-<body class="hold-transition sidebar-mini <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
+<body class="hold-transition sidebar-mini accent-olive <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
 <!-- Site wrapper -->
 <div class="wrapper">
 

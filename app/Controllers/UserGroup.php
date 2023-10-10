@@ -109,13 +109,13 @@ class UserGroup extends BaseController
             'group_name' => [
                 'rules'     => 'required',
                 'errors'    => [
-                    'required' => Lang('Text.UsersGroup.Error.GroupName')
+                    'required' => Lang('Text.UserGroupNameError')
                 ]
             ],
             'group_status' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => Lang('Text.UsersGroup.Error.GroupStatus')
+                    'required' => Lang('Text.UserGroupStatusError')
                 ]
             ]
 
@@ -146,7 +146,7 @@ class UserGroup extends BaseController
             $send = $this->userGroupModel->saveUserGroup($data);
 
             if($send){
-                return redirect()->to(base_url($this->viewData['locale'].'/'.'user-group-lists'))->with('successAdd', Lang('Text.UsersGroup.Add.Success'));
+                return redirect()->to(base_url($this->viewData['locale'].'/'.'user-group-lists'))->with('successAdd', Lang('Text.UserGroupSuccessSave'));
             }
 
         }
@@ -157,7 +157,7 @@ class UserGroup extends BaseController
 
         if($id == 1)
         {
-            return redirect()->to(base_url($this->viewData['locale'].'/user-group-lists'))->with('permissionError', Lang('Text.Users.Edit.Error.Admin'));
+            return redirect()->to(base_url($this->viewData['locale'].'/user-group-lists'))->with('permissionError', Lang('Text.AdminPermissionError'));
         }
 
         $loggedUserId = session()->get('loggedUser');
@@ -193,7 +193,7 @@ class UserGroup extends BaseController
 
         $this->userGroupModel->updateUserGroup($data,$id);
 
-        return redirect()->to(base_url($this->request->getLocale().'/user-group-lists'))->with('successUpdate',Lang('Text.UsersGroup.Edit.Success'));
+        return redirect()->to(base_url($this->request->getLocale().'/user-group-lists'))->with('successUpdate',Lang('Text.UserGroupSuccessUpdate'));
        
     }
 
@@ -202,7 +202,7 @@ class UserGroup extends BaseController
 
         $this->userGroupModel->deleteUserGroup($id);
 
-        return redirect()->to(base_url($this->request->getLocale().'/user-group-lists'))->with('successDelete',Lang('Text.UsersGroup.Delete.Success'));
+        return redirect()->to(base_url($this->request->getLocale().'/user-group-lists'))->with('successDelete',Lang('Text.UserGroupSuccessDelete'));
 
     }
 

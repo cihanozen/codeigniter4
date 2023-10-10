@@ -108,10 +108,11 @@
 
       <?php if(isAllowedModules("user_edit_p")){ ?>
 
-      <div class="row mb-4">
+      <div class="row">
         <div class="col-12">
-          <input type="submit" value="<?php echo lang('Text.UpdateButton');?>" class="btn btn-success float-right">
-          <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"><?php echo lang('Text.CancelButton');?></a>
+       
+          <input type="submit" value="<?php echo lang('Text.Users.Button.Update');?>" class="btn btn-success float-right">
+          <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"><?php echo lang('Text.Users.Button.Cancel');?></a>
         </div>
       </div>
 

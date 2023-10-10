@@ -37,7 +37,7 @@ return [
     'Users.Add.Error.Username' => 'Please write the username!',
     'Users.Add.Error.Password' => 'Please enter a password!',
     'Users.Add.Error.Email' => 'Please write an email address!',
-    'Users.Add.Error.Status' => "You must choose the user's environment!",
+    'Users.Add.Error.Status' => "You must choose the users environment!",
     'Users.Add.Error.Group' => "Please select the user's management group!",
     'Users.Add.Error.IsUnique' => "Another user is using this e-mail address!",
     'Users.Add.Error.ValidEmail' => "Type a valid email address!",

@@ -13,7 +13,7 @@ class AuthCheckFilter implements FilterInterface
 
         $uri = service('uri');
         $locale = service('request')->getLocale();
-        $status = session()->get('loggedUser')['status'];
+        $status = @session()->get('loggedUser')['status'];
         
         if(!session()->has('loggedUser'))
         {

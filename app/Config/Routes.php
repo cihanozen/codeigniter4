@@ -32,6 +32,13 @@ $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
     $routes->post('user-group-edit/update/(:any)', 'UserGroup::userGroupUpdate/$1');
     $routes->post('user-group-add/save', 'UserGroup::userGroupSave');
     $routes->get('user-group-lists/delete/(:any)', 'UserGroup::userGroupDelete/$1');
+
+    $routes->get('language-lists', 'Language::languageLists');
+    $routes->get('language-add', 'Language::languageAdd');
+    $routes->post('language-add/save', 'Language::languageSave');
+    $routes->get('language-translate/(:any)', 'Language::languageTranslate/$1');
+    $routes->post('language-translate/update/(:any)', 'Language::languageTranslateUpdate/$1');
+    $routes->get('language-lists/delete/(:any)', 'Language::languageDelete/$1');
   
 });
 

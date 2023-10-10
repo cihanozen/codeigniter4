@@ -19,12 +19,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo lang('Text.Users');?></h1>
+            <h1><?php echo lang('Text.LanguageLists');?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><?php echo lang('Text.Home');?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('Text.Users');?></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url();?>"><?php echo lang('Text.Home');?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('Text.LanguageLists');?></li>
             </ol>
           </div>
         </div>
@@ -77,7 +77,6 @@
 
         <div class="card-body p-0">
 
-    
           <table class="table table-striped projects">
               <thead>
                   <tr>
@@ -85,56 +84,64 @@
                           #ID
                       </th>
                       <th style="width: 20%">
-                        <?php echo Lang('Text.Username');?>
+                        <?php echo Lang('Text.LanguageTitle');?>
                       </th>
-                      <th style="width: 20%">
-                        <?php echo Lang('Text.GroupName');?>
+                      <th style="width: 10%">
+                        <?php echo Lang('Text.ShortName');?>
                       </th>
-                      <th style="width: 8%" class="text-center">
-                        <?php echo Lang('Text.Status');?>
+                      <th style="width: 10%">
+                        <?php echo Lang('Text.Flag');?>
+                      </th>
+                      <th style="width: 15%">
+                        <?php echo Lang('Text.LanguageStatus');?>
+                      </th>
+                      <th style="width: 10%">
+                        <?php echo Lang('Text.CreationDate');?>
                       </th>
                       <th class="text-right"></th>
                   </tr>
               </thead>
               <tbody>
-                 <?php foreach($users as $user) { ?>
+                 <?php foreach($languages as $language) { ?>
                   <tr>
                       <td>
-                          <?php echo $user['id']; ?>
+                      <?php echo $language['id'];?>
                       </td>
                       <td>
-                          <a>
-                          <?php echo $user['username']; ?>
-                          </a>
+                      <?php echo $language['language_name_tr'];?>
                       </td>
                       <td>
-                           <?php echo $user['group_name']; ?>
+                      <?php echo $language['language_short_name'];?>
+                      </td>
+
+                      <td>
+                      <i class="flag-icon flag-icon-<?php echo $language['language_short_name'];?>"></i>
+                      </td>
+
+                      <td>
+                      <?php status($language['language_status']);?> <?php status_selected($language['language_selected']);?>
                       </td>
                      
-                      <td class="project-state">
-                        <?php status($user['status']);?>
+                      <td>
+                      <?php echo dateFormat($language['language_created_at']);?>
                       </td>
                       
                       <td class="project-actions text-right">
 
-                          <a class="btn btn-info btn-sm <?php echo ($user['id'] == 1) ? 'disabled' : ''; ?>" href="<?php echo base_url($locale.'/user-edit').'/'.$user['id'];?>">
-                              <i class="fas fa-pencil-alt"></i>
-                              <?php echo Lang('Text.EditButton');?>
+                        <a class="btn btn-primary btn-sm <?php //echo ($user['id'] == 1) ? 'disabled' : ''; ?>" href="<?php echo base_url($locale.'/language-translate').'/'.$language['language_short_name'];?>">
+                              <i class="fas fa-language pr-1"></i>
+                              <?php echo Lang('Text.TranslationButton');?>
                           </a>
 
-                          <?php if(isAllowedModules("user_delete_p")){ ?>
-
-                          <a class="btn btn-danger btn-sm <?php echo ($user['id'] == 1) ? 'disabled' : ''; ?>" href="<?php echo base_url($locale.'/user-lists/delete').'/'.$user['id'];?>">
-                              <i class="fas fa-trash"></i>
+                          <a class="btn btn-danger btn-sm <?php echo ($language['id'] == 1 || $language['id'] == 2) ? 'disabled' : ''; ?>" href="<?php echo base_url($locale.'/language-lists/delete').'/'.$language['id'];?>">
+                              <i class="fas fa-trash pr-1"></i>
                               <?php echo Lang('Text.DeleteButton');?>
                           </a>
-
-                          <?php } ?>
 
                       </td>
                     
                   </tr>
-                  <?php } ?>
+                  <?php  } ?>
             
               </tbody>
           </table>

@@ -22,7 +22,8 @@ function sef_link($str){
     return $perma;
 }
 
-function status($x){
+function status($x)
+{
     
     if($x == 1){
 
@@ -31,6 +32,21 @@ function status($x){
     }else{
 
         echo '<span class="badge badge-secondary">'.lang('Text.Passive').'</span>';
+
+    }
+
+}
+
+function status_selected($x)
+{
+    
+    if($x == 1){
+
+        echo '- <span class="badge badge-warning">'.Lang('Text.DefaultLanguage').'</span>';
+
+    }else{
+
+        echo '- <a href=""><span class="badge badge-dark">Seç</span></a>';
 
     }
 
@@ -62,6 +78,11 @@ function isAllowedModules($moduleName = "")
         return false;
     }
 
+}
+
+function dateFormat($date)
+{
+    return $newDate = date("d-m-Y H:i", strtotime($date));
 }
 
 ?>

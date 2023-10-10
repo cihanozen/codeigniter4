@@ -3,7 +3,7 @@
 
 <?php echo view('Panel/inc/Header');?>
 
-<body class="hold-transition sidebar-mini <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
+<body class="hold-transition sidebar-mini accent-olive <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -18,12 +18,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo lang('Text.UserGroup.GroupAdd');?></h1>
+            <h1><?php echo lang('Text.GroupAdd');?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('Text.Home');?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('Text.UserGroup.GroupAdd');?></li>
+              <li class="breadcrumb-item active"><?php echo lang('Text.GroupAdd');?></li>
             </ol>
           </div>
         </div>
@@ -66,19 +66,16 @@
             <?php }  ?>
 
           <div class="card card-default">
-            <div class="card-header">
-              <h3 class="card-title"><?php echo lang('Text.UsersGroup.NewGroupAdd');?></h3>
-            </div>
-
+   
             <form action="<?php echo base_url($locale.'/user-group-add/save')?>" method="POST">
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName"><?php echo lang('Text.UsersGroup.GroupName');?></label>
+                <label for="inputName"><?php echo lang('Text.UserGroupName');?></label>
                 <input type="text" name="group_name" value="<?php echo set_value('group_name')?>" id="inputName" class="form-control" autocomplete="off">
               </div>
 
               <div class="form-group">
-                <label for="inputStatus"><?php echo lang('Text.UsersGroup.GroupStatus');?></label>
+                <label for="inputStatus"><?php echo lang('Text.UserGroupStatus');?></label>
                 <select id="inputStatus" name='group_status' class="form-control custom-select">
                   <option selected disabled><?php echo lang('Text.Select');?></option>
                   <option value="1"><?php echo lang('Text.Active');?></option>
@@ -108,12 +105,11 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                    <th style="width: 20%;"><?php echo lang('Text.UsersGroup.PermissionArea');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.View');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Add');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Edit');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Delete');?></th>
-                    </tr>
+                    <th style="width: 20%;"><?php echo lang('Text.PermissionArea');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionView');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionAdd');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionEdit');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionDelete');?></th>
                   </thead>
                  
                   <tbody>

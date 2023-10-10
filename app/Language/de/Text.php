@@ -1,0 +1,80 @@
+<?php
+        return [
+        // Header
+            'Home'                              => 'Startseite',
+            'Logout'                            => 'Ausfahrt',
+        // Menu
+            'Users'                             => '',
+            'UserLists'                         => '',
+            'UserAdd'                           => '',
+            'UserGroups'                        => '',
+            'GroupLists'                        => '',
+            'GroupAdd'                          => '',
+            'LanguageManagement'                => '',
+            'LanguageLists'                     => '',
+            'AddNewLanguage'                    => '',
+        // Buttons and Inputs
+            'SaveButton'                        => '',
+            'UpdateButton'                      => '',
+            'EditButton'                        => '',
+            'DeleteButton'                      => '',
+            'CancelButton'                      => '',
+            'TranslationButton'                 => '',
+            'Select'                            => '',
+        // Users
+            'Username'                          => '',
+            'GroupName'                         => '',
+            'Status'                            => '',
+            'Active'                            => '',
+            'Passive'                           => '',
+            'Email'                             => '',
+            'Password'                          => '',
+            'UserBio'                           => '',
+            'UserEdit'                          => '',
+            'SuccessSave'                       => '',
+            'SuccessUpdate'                     => '',
+            'SuccessDelete'                     => '',
+            'PermissionEditError'               => '',
+            'AdminPermissionError'              => '',
+            'UsernameError'                     => '',
+            'PasswordError'                     => '',
+            'EmailError'                        => '',
+            'UserBioError'                      => '',
+            'StatusError'                       => '',
+            'GroupNameError'                    => '',
+            'ValidEmailError'                   => '',
+            'IsUniqueEmailError'                => '',
+        // User Groups
+            'UserGroupEdit'                     => '',
+            'UserGroupName'                     => '',
+            'UserGroupStatus'                   => '',
+            'UserGroupPermission'               => '',
+            'PermissionArea'                    => '',
+            'PermissionView'                    => '',
+            'PermissionAdd'                     => '',
+            'PermissionEdit'                    => '',
+            'PermissionDelete'                  => '',
+            'UserGroupSuccessSave'              => '',
+            'UserGroupSuccessUpdate'            => '',
+            'UserGroupSuccessDelete'            => '',
+            'UserGroupNameError'                => '',
+            'UserGroupStatusError'              => '',
+            'PermissionUserGroupEditError'      => '',
+        // Languages
+            'TranslationPage'                   => '',
+            'LanguageTitle'                     => '',
+            'ShortName'                         => '',
+            'Flag'                              => '',
+            'LanguageStatus'                    => '',
+            'CreationDate'                      => '',
+            'DefaultLanguage'                   => '',
+            'TranslateSuccessSave'              => '',
+            'LanguageSuccessSave'               => '',
+            'LanguageSuccessDelete'             => '',
+            
+            
+            
+            
+            
+        ];
+        ?>

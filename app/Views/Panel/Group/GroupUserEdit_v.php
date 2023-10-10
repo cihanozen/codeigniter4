@@ -3,7 +3,7 @@
 
 <?php echo view('Panel/inc/Header');?>
 
-<body class="hold-transition sidebar-mini <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
+<body class="hold-transition sidebar-mini accent-olive <?php echo (session()->get('loggedUser')['dark_mode'] == 1) ? 'dark-mode' : ''; ?>">
 <!-- Site wrapper -->
 
 <div class="wrapper">
@@ -19,12 +19,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo lang('Text.UserGroup.GroupEdit');?></h1>
+            <h1><?php echo lang('Text.UserGroupEdit');?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('Text.Home');?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('Text.UserGroup.GroupEdit');?></li>
+              <li class="breadcrumb-item active"><?php echo lang('Text.UserGroupEdit');?></li>
             </ol>
           </div>
         </div>
@@ -56,20 +56,15 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card card-default">
-            <div class="card-header">
-              <h3 class="card-title"><?php echo lang('Text.UserEdit');?></h3>
-
-            
-            </div>
-
+          
             <form action="<?php echo base_url($locale.'/user-group-edit/update/'.$uri->getSegment(3))?>" method="POST">
             <div class="card-body">
               <div class="form-group">
-                <label for="inputName"><?php echo lang('Text.UsersGroup.GroupName');?></label>
+                <label for="inputName"><?php echo lang('Text.UserGroupName');?></label>
                 <input type="text" name="group_name" value="<?php echo $userGroup->group_name; ?>" id="inputName" class="form-control" autocomplete="off">
               </div>
               <div class="form-group">
-                <label for="inputStatus"><?php echo lang('Text.UsersGroup.GroupStatus');?></label>
+                <label for="inputStatus"><?php echo lang('Text.UserGroupStatus');?></label>
                 <select id="inputStatus" name='group_status' class="form-control custom-select">
                   <option selected disabled><?php echo lang('Text.Select');?></option>
                   <option value="1" <?php echo ($userGroup->group_status == 1) ? 'selected' : '';?> ><?php echo lang('Text.Active');?></option>
@@ -91,18 +86,18 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"><?php echo lang('Text.UsersGroup.Permission');?></h3>
+                <h3 class="card-title"><?php echo lang('Text.UserGroupPermission');?></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th style="width: 20%;"><?php echo lang('Text.UsersGroup.PermissionArea');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.View');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Add');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Edit');?></th>
-                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.UsersGroup.Permission.Delete');?></th>
+                      <th style="width: 20%;"><?php echo lang('Text.PermissionArea');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionView');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionAdd');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionEdit');?></th>
+                      <th style="width: 20%; text-align:center;"><?php echo lang('Text.PermissionDelete');?></th>
                     </tr>
                   </thead>
                   <input type="hidden" name='group_id' value="<?php echo $userGroup->id; ?>">
@@ -237,8 +232,8 @@
 
         <div class="row">
           <div class="col-12">
-            <input type="submit" value="<?php echo Lang('Text.Users.Button.Save');?>" class="btn btn-success float-right">
-            <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.Users.Button.Cancel');?></a>
+            <input type="submit" value="<?php echo Lang('Text.UpdateButton');?>" class="btn btn-success float-right">
+            <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.CancelButton');?></a>
           </div>
         </div>
 

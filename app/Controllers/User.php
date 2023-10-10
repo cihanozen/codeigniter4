@@ -87,33 +87,33 @@ class User extends BaseController
             'username' => [
                 'rules'     => 'required',
                 'errors'    => [
-                    'required' => Lang('Text.Users.Add.Error.Username')
+                    'required' => Lang('Text.UsernameError')
                 ]
             ],
             'password' => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => Lang('Text.Users.Add.Error.Password')
+                    'required' => Lang('Text.PasswordError')
                 ]
             ],
             'email' => [
                 'rules' => 'required|valid_email|is_unique[users.email]',
                 'errors' => [
-                    'required' => Lang('Text.Users.Add.Error.Email'),
-                    'valid_email' => Lang('Text.Users.Add.Error.ValidEmail'),
-                    'is_unique' => Lang('Text.Users.Add.Error.IsUnique')
+                    'required' => Lang('Text.PasswordError'),
+                    'valid_email' => Lang('Text.ValidEmailError'),
+                    'is_unique' => Lang('Text.IsUniqueEmailError')
                 ]
             ],
             'status'  => [
                 'rules' => 'required',
                 'errors' => [
-                    'required' => Lang('Text.Users.Add.Error.Status')
+                    'required' => Lang('Text.StatusError')
                 ]
             ],
             'group_id'  => [
                 'rules' => 'required',
                 'errors' => [
-                       'required' => Lang('Text.Users.Add.Error.Group')
+                       'required' => Lang('Text.GroupNameError')
                 ]
             ]
         ]);
@@ -146,7 +146,7 @@ class User extends BaseController
             $send = $this->userModel->saveUser($data);
 
             if($send){
-                return redirect()->to(base_url($this->viewData['locale'].'/'.'user-lists'))->with('successAdd', Lang('Text.Users.Add.Success'));
+                return redirect()->to(base_url($this->viewData['locale'].'/'.'user-lists'))->with('successAdd', Lang('Text.SuccessSave'));
             }
 
         }
@@ -159,7 +159,7 @@ class User extends BaseController
         
         if($id == 1)
         {
-            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete', Lang('Text.Users.Edit.Error.Admin'));
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete', Lang('Text.AdminPermissionError'));
         }
     
         $loggedUserId = session()->get('loggedUser');
@@ -180,7 +180,7 @@ class User extends BaseController
         
         if(!isAllowedModules("user_edit_p")){
             
-            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete', Lang('Text.Users.Edit.Permission'));
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete', Lang('Text.PermissionEditError'));
         
         }else{
 
@@ -194,7 +194,7 @@ class User extends BaseController
 
             $this->userModel->updateUser($data,$id);
 
-            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate',Lang('Text.Users.Edit.Success'));
+            return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successUpdate',Lang('Text.SuccessDelete'));
            
         }
         
@@ -207,7 +207,7 @@ class User extends BaseController
 
         $this->userModel->deleteUser($id);
 
-        return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete',Lang('Text.Users.Delete.Success'));
+        return redirect()->to(base_url($this->viewData['locale'].'/user-lists'))->with('successDelete',Lang('Text.SuccessDelete'));
 
     }
 
