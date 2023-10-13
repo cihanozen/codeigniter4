@@ -61,5 +61,12 @@ abstract class BaseController extends Controller
         $this->viewData['locale'] = service('request')->getLocale();
         $this->viewData['supportedLocales'] = $request->config->supportedLocales;
 
+        
+
+
+        
+        
+
+
     }
 }

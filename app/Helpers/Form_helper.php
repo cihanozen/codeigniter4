@@ -37,7 +37,7 @@ function status($x)
 
 }
 
-function status_selected($x)
+function status_selected($x,$id,$short)
 {
     
     if($x == 1){
@@ -46,7 +46,7 @@ function status_selected($x)
 
     }else{
 
-        echo '- <a href=""><span class="badge badge-dark">Seç</span></a>';
+        echo '- <span class="badge badge-dark selectBtn" data-id="'.$id.'" data-selected-id="'.$x.'" data-short-selected="'.$short.'" style="cursor:pointer;">'.Lang('Text.Select').'</span>';
 
     }
 

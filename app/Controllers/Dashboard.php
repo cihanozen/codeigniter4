@@ -7,7 +7,7 @@ class Dashboard extends BaseController
 
     public function index()
     {
-
+        
         $userModel = new \App\Models\UsersModel();
         $loggedUserId = session()->get('loggedUser');
         $userInfo = $userModel->find($loggedUserId);

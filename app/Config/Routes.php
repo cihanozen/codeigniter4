@@ -38,8 +38,9 @@ $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
     $routes->post('language-add/save', 'Language::languageSave');
     $routes->get('language-translate/(:any)', 'Language::languageTranslate/$1');
     $routes->post('language-translate/update/(:any)', 'Language::languageTranslateUpdate/$1');
-    $routes->get('language-lists/delete/(:any)', 'Language::languageDelete/$1');
-  
+    $routes->post('language-lists/delete', 'Language::languageDelete');
+    $routes->post('language-selected-change', 'Language::languageSelectedChange');
+    
 });
 
 

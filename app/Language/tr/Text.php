@@ -70,8 +70,11 @@
             'DefaultLanguage'                   => 'Varsayılan Dil',
             'TranslateSuccessSave'              => 'Çeviri işlemi başarıyla yapıldı!',
             'LanguageSuccessSave'               => 'Yeni dil başarıyla kaydedildi!',
+            'SweetalertTitle'                   => 'Silmek istediğinize emin misiniz?',
+            'SweetalertText'                    => 'Bunu artık geri döndüremezsiniz!',
+            'ConfirmButtonText'                 => 'Evet',
+            'CancelButtonText'                  => 'Hayır',
             'LanguageSuccessDelete'             => 'Dil başarıyla silindi!',
-            
             
             
             

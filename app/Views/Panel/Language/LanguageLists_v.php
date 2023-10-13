@@ -119,7 +119,7 @@
                       </td>
 
                       <td>
-                      <?php status($language['language_status']);?> <?php status_selected($language['language_selected']);?>
+                      <?php status($language['language_status']);?> <?php status_selected($language['language_selected'],$language['id'],$language['language_short_name']);?>
                       </td>
                      
                       <td>
@@ -132,8 +132,8 @@
                               <i class="fas fa-language pr-1"></i>
                               <?php echo Lang('Text.TranslationButton');?>
                           </a>
-
-                          <a class="btn btn-danger btn-sm <?php echo ($language['id'] == 1 || $language['id'] == 2) ? 'disabled' : ''; ?>" href="<?php echo base_url($locale.'/language-lists/delete').'/'.$language['id'];?>">
+                        <?php //href="<?php //echo base_url($locale.'/language-lists/delete').'/'.$language['id'];?>
+                          <a data-id="<?php echo $language['id'];?>" class="btn btn-danger btn-sm deleteButtonClick <?php echo ($language['id'] == 1 || $language['id'] == 2) ? 'disabled' : ''; ?>">
                               <i class="fas fa-trash pr-1"></i>
                               <?php echo Lang('Text.DeleteButton');?>
                           </a>
@@ -163,3 +163,128 @@
 
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+
+<style>
+
+.swal2-cancel{
+  margin-right: 5px;;
+}
+
+.swal2-confirm {
+  margin-left: 5px;;
+}
+
+
+</style>
+
+<script>
+
+$('.selectBtn').on('click',function(){
+
+  var id = $(this).data('id');
+  var idSelected = $(this).data('selected-id');
+  var shortSelected = $(this).data('short-selected');
+
+  var url = '<?php echo base_url($locale.'/language-selected-change')?>';
+
+  $.ajax({
+      url: url,
+      type: 'POST',
+      data: { id:id, idSelected:idSelected, shortSelected:shortSelected },
+      success:function(data){
+      
+        if(data){
+          const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })
+
+            swalWithBootstrapButtons.fire(
+              'Dil Seçimi',
+              'Varsayılan dil başarıyla değişti!',
+              'success'
+            )
+
+            setInterval(function() {
+              window.location.href = data;
+            }, 2000);
+
+
+
+        }
+      
+      }
+  
+    });
+
+
+});  
+
+$('.deleteButtonClick').on('click',function(){
+
+  const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: '<?php echo Lang('Text.SweetalertTitle')?>',
+  text: "<?php echo Lang('Text.SweetalertText')?>",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: '<?php echo Lang('Text.ConfirmButtonText')?>',
+  cancelButtonText: '<?php echo Lang('Text.CancelButtonText')?>',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    
+
+    var id = $(this).data('id');
+
+    $.ajax({
+      url: '<?php echo base_url("$locale.'/language-lists/delete")?>',
+      type: 'POST',
+      data: { id:id },
+      success:function(data){
+          
+        if(data == 1){
+
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            '<?php echo Lang('Text.LanguageSuccessDelete')?>',
+            'success'
+          )
+
+          setInterval(function() {
+            window.location.reload()
+          }, 2000);
+
+        
+          //alert(data);
+        }
+       
+
+      }
+    });
+
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+   
+  }
+})
+
+});
+
+
+
+</script>

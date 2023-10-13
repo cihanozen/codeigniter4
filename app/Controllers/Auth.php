@@ -67,6 +67,7 @@ class Auth extends BaseController
                         'email' => $user_email,
                         'status' => $status,
                         'username' => $username,
+                        'locale' => service('request')->getLocale(),
                         'dark_mode' => 0
                     ];
 

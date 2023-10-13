@@ -31,9 +31,15 @@ class LanguageModel extends Model
         return $query;
     }
 
-    public function updateUser($data,$id)
+    public function updateLanguageSelect($data,$id)
     {
         $query = $this->db->table($this->table)->update($data,array('id' => $id));
+        return $query;
+    }
+
+    public function updateLanguageSelectNoId($data)
+    {
+        $query = $this->db->table($this->table)->update($data);
         return $query;
     }
 

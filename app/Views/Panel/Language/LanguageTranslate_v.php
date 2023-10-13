@@ -490,7 +490,6 @@
                             <textarea name="defaultLanguage" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['defaultLanguage'];?></textarea>
                           </div>
 
-                          
                           <blockquote class="quote-success mt-0">
                             
                             <div class="form-group">
@@ -503,12 +502,38 @@
                                 <textarea name="languageSuccessSave" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['languageSuccessSave'];?></textarea>
                             </div>
 
+                            </blockquote>
+
+                            <blockquote class="quote-info mt-0">
+                            
                             <div class="form-group">
-                                <label>Language Success Delete Message</label>
+                                <label>Sweetalert Title</label>
+                                <textarea name="sweetalertTitle" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sweetalertTitle'];?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sweetalert Text</label>
+                                <textarea name="sweetalertText" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sweetalertText'];?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sweetalert Confirm Button Text</label>
+                                <textarea name="confirmButtonText" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['confirmButtonText'];?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sweetalert Cancel Button Text</label>
+                                <textarea name="cancelButtonText" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['cancelButtonText'];?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Sweetalert Success Delete Message</label>
                                 <textarea name="languageSuccessDelete" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['languageSuccessDelete'];?></textarea>
                             </div>
 
                           </blockquote>
+
+                         
 
                         </div>
                     </div>

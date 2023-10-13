@@ -70,8 +70,11 @@
             'DefaultLanguage'                   => 'Default Language',
             'TranslateSuccessSave'              => 'Translation was done successfully!',
             'LanguageSuccessSave'               => 'The new language has been successfully registered!',
+            'SweetalertTitle'                   => 'Are you sure?',
+            'SweetalertText'                    => 'You wont be able to revert this!',
+            'ConfirmButtonText'                 => 'Yes, delete it!',
+            'CancelButtonText'                  => 'No, cancel!',
             'LanguageSuccessDelete'             => 'Language successfully deleted!',
-            
             
             
             

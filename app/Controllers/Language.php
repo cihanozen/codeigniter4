@@ -18,7 +18,6 @@ class Language extends BaseController
         $this->languageModel = new \App\Models\LanguageModel();
         $this->countryModel = new \App\Models\CountryModel();
         $this->translateModel = new \App\Models\TranslateModel();
-        
     }
 
     public function index()
@@ -45,6 +44,12 @@ class Language extends BaseController
 
     public function languageLists()
     {
+
+        /*
+        echo "<pre>";
+        print_r($_SESSION);
+        echo "</pre>";
+        */
 
         $uri = service('uri');
         $locale = $this->request->getLocale();
@@ -211,12 +216,16 @@ return [];
         }
     }
 
-    public function languageDelete($id)
+    public function languageDelete()
     {
+
+        $id = $this->request->getPost('id');
 
         $this->languageModel->deleteLanguage($id);
 
-        return redirect()->to(base_url($this->viewData['locale'].'/language-lists'))->with('successDelete',Lang('Text.LanguageSuccessDelete'));
+        echo 1;
+
+        //return redirect()->to(base_url($this->viewData['locale'].'/language-lists'))->with('successDelete',Lang('Text.LanguageSuccessDelete'));
 
     }
 
@@ -333,8 +342,11 @@ return [];
             'DefaultLanguage'                   => '".$arrayData['defaultLanguage']."',
             'TranslateSuccessSave'              => '".$arrayData['translateSuccessSave']."',
             'LanguageSuccessSave'               => '".$arrayData['languageSuccessSave']."',
+            'SweetalertTitle'                   => '".$arrayData['sweetalertTitle']."',
+            'SweetalertText'                    => '".$arrayData['sweetalertText']."',
+            'ConfirmButtonText'                 => '".$arrayData['confirmButtonText']."',
+            'CancelButtonText'                  => '".$arrayData['cancelButtonText']."',
             'LanguageSuccessDelete'             => '".$arrayData['languageSuccessDelete']."',
-            
             
             
             
@@ -425,6 +437,10 @@ return [];
             'DefaultLanguage'                   => '".$arrayData['defaultLanguage']."',
             'TranslateSuccessSave'              => '".$arrayData['translateSuccessSave']."',
             'LanguageSuccessSave'               => '".$arrayData['languageSuccessSave']."',
+            'SweetalertTitle'                   => '".$arrayData['sweetalertTitle']."',
+            'SweetalertText'                    => '".$arrayData['sweetalertText']."',
+            'ConfirmButtonText'                 => '".$arrayData['confirmButtonText']."',
+            'CancelButtonText'                  => '".$arrayData['cancelButtonText']."',
             'LanguageSuccessDelete'             => '".$arrayData['languageSuccessDelete']."',
             
             
@@ -442,6 +458,42 @@ return [];
 
         return redirect()->to(base_url($this->viewData['locale'].'/language-translate'.'/'.$id))->with('successUpdate',Lang('Text.TranslateSuccessSave'));;
 
+
+    }
+
+    public function languageSelectedChange()
+    {
+        $id = $this->request->getPost('id');
+        $idSelected = $this->request->getPost('idSelected');
+        $shortSelected = $this->request->getPost('shortSelected');
+
+        $firstData = array(
+            'language_selected' => 0
+        );
+
+        $this->languageModel->updateLanguageSelectNoId($firstData);
+
+        $data = array(
+            'language_selected' => ($idSelected == 0) ? 1 : 0
+        );
+  
+        $this->languageModel->updateLanguageSelect($data,$id);
+
+        $loggedUserId = session()->get('loggedUser');
+
+        $sessionData = [
+            'user_id' => $loggedUserId['user_id'],
+            'group_id' => $loggedUserId['group_id'],
+            'email' => $loggedUserId['email'],
+            'status' => $loggedUserId['status'],
+            'username' => $loggedUserId['username'],
+            'dark_mode' => $loggedUserId['dark_mode'],
+            'locale' => $shortSelected
+        ];
+
+        session()->set('loggedUser', $sessionData);
+
+        echo $newUrl = base_url($shortSelected.'/language-lists');
 
     }
 

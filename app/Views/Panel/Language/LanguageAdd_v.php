@@ -166,8 +166,8 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <input type="reset" value="<?php echo Lang('Text.Users.Button.Save');?>" class="btn btn-success float-right btnSave">
-          <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.Users.Button.Cancel');?></a>
+          <input type="reset" value="<?php echo Lang('Text.SaveButton');?>" class="btn btn-success float-right btnSave">
+          <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.CancelButton');?></a>
         </div>
       </div>
       </form>
