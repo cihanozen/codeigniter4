@@ -127,7 +127,7 @@
 
                           <?php if(isAllowedModules("user_group_delete_p")){ ?>
 
-                          <a class="btn btn-danger btn-sm <?php echo ($userGroup['id'] == 1) ? 'disabled' : ''; ?> " href="<?php echo base_url($locale.'/user-group-lists/delete').'/'.$userGroup['id'];?>">
+                          <a class="btn btn-danger btn-sm <?php echo ($userGroup['id'] = 1) ? 'disabled' : ''; ?> " href="<?php echo base_url($locale.'/user-group-lists/delete').'/'.$userGroup['id'];?>">
                               <i class="fas fa-trash">
                               </i>
                               <?php echo Lang('Text.PermissionDelete');?>

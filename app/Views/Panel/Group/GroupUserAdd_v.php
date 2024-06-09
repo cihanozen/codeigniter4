@@ -149,6 +149,41 @@
                       </td>
                     </tr>
                     <tr>
+                      <td>Slider</td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                          
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_view_p" name="slider_view_p">
+                          <label for="slider_view_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                        
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_save_p" name="slider_save_p" >
+                          <label for="slider_save_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                            <input
+                  
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_edit_p"name="slider_edit_p" >
+                            <label for="slider_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
+                          </div>  
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                      
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_delete_p" name="slider_delete_p" >
+                          <label for="slider_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
                       <td>Kullanıcılar</td>
                       <td style="width: 20%; text-align:center;">
                         <div class="custom-control custom-checkbox">
@@ -231,8 +266,8 @@
 
       <div class="row">
         <div class="col-12">
-          <input type="submit" value="<?php echo Lang('Text.Users.Button.Save');?>" class="btn btn-success float-right">
-          <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.Users.Button.Cancel');?></a>
+          <input type="submit" value="<?php echo Lang('Text.SaveButton');?>" class="btn btn-success float-right">
+          <a href="<?php echo base_url();?>" class="btn btn-secondary float-right mr-3"> <?php echo Lang('Text.CancelButton');?></a>
         </div>
       </div>
 

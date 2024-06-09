@@ -45,6 +45,30 @@
             </a>
           </li>
 
+          <li class="nav-item <?php echo ($uri->getSegment(2) == 'slider-lists' || $uri->getSegment(2) == 'slider-create') ? 'menu-open' : '';?>">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+              <?php echo Lang('Text.SliderModule');?>
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/slider-lists')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'slider-lists') ? 'active' : '';?> ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.SliderLists');?></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url($locale.'/slider-create')?>" class="nav-link <?php echo ($uri->getSegment(2) == 'slider-create') ? 'active' : '';?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p><?php echo Lang('Text.SliderAdd');?></p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item <?php echo ($uri->getSegment(2) == 'user-lists' || $uri->getSegment(2) == 'user-add' || $uri->getSegment(2) == 'user-edit') ? 'menu-open' : '';?>">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-user"></i>

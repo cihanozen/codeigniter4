@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 Haz 2024, 20:57:03
+-- Üretim Zamanı: 09 Haz 2024, 15:51:35
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.2.12
 
@@ -291,8 +291,8 @@ CREATE TABLE `language_settings` (
 --
 
 INSERT INTO `language_settings` (`id`, `language_name_tr`, `language_name_en`, `language_country_tr`, `language_country_en`, `language_short_name`, `language_created_at`, `language_status`, `language_selected`) VALUES
-(1, 'İngilizce', 'English', 'İngilizce', 'English', 'us', '2024-06-02 21:56:38', 1, 0),
-(2, 'Türkçe', 'Turkish', 'Turkey', 'Turkey', 'tr', '2024-06-02 21:56:38', 1, 1);
+(1, 'Türkçe', 'Turkish', 'Türkiye', 'Turkey', 'tr', '2024-06-02 21:56:38', 1, 1),
+(2, 'İngilizce', 'English', 'Amerika', 'USA', 'us', '2024-06-02 21:56:38', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -311,8 +311,23 @@ CREATE TABLE `language_translates` (
 --
 
 INSERT INTO `language_translates` (`id`, `main`, `content`) VALUES
-(1, 'us', '{\"home\":\"Home\",\"logout\":\"Logout\",\"users\":\"Users\",\"userLists\":\"User Lists\",\"userAdd\":\"User Add\",\"userGroups\":\"User Groups\",\"groupLists\":\"Group Lists\",\"groupAdd\":\"Group Add\",\"languageManagement\":\"Language Management\",\"languageLists\":\"Language Lists\",\"addNewLanguage\":\"Add New Language\",\"saveButton\":\"Save\",\"updateButton\":\"Update\",\"editButton\":\"Edit\",\"deleteButton\":\"Delete\",\"cancelButton\":\"Cancel\",\"translationButton\":\"Translation\",\"select\":\"Select\",\"username\":\"Username\",\"groupName\":\"Group Name\",\"status\":\"Status\",\"active\":\"Active\",\"passive\":\"Passive\",\"email\":\"Email\",\"password\":\"Password\",\"userBio\":\"User Bio\",\"userEdit\":\"User Edit\",\"successSave\":\"\",\"successUpdate\":\"\",\"successDelete\":\"\",\"usernameError\":\"\",\"passwordError\":\"\",\"emailError\":\"\",\"userBioError\":\"\",\"statusError\":\"\",\"groupNameError\":\"\",\"validEmailError\":\"\",\"isUniqueEmailError\":\"\",\"permissionEditError\":\"\",\"adminPermissionError\":\"\",\"userGroupEdit\":\"User Group Edit\",\"userGroupName\":\"User Group Name\",\"userGroupStatus\":\"User Group Status\",\"userGroupPermission\":\"User Group Permission\",\"permissionArea\":\"Permission Area\",\"permissionView\":\"View\",\"permissionAdd\":\"Add\",\"permissionEdit\":\"Edit\",\"permissionDelete\":\"Delete\",\"userGroupSuccessSave\":\"\",\"userGroupSuccessUpdate\":\"\",\"userGroupSuccessDelete\":\"\",\"userGroupNameError\":\"\",\"userGroupStatusError\":\"\",\"permissionUserGroupEditError\":\"\",\"translationPage\":\"Translation Page\",\"languageTitle\":\"Language Title\",\"shortName\":\"Short Name\",\"flag\":\"Flag\",\"languageStatus\":\"Language Status\",\"creationDate\":\"Creation Date\",\"defaultLanguage\":\"Default Language\",\"translateSuccessSave\":\"\",\"languageSuccessSave\":\"\",\"sweetalertTitle\":\"\",\"sweetalertText\":\"\",\"confirmButtonText\":\"\",\"cancelButtonText\":\"\",\"languageSuccessDelete\":\"\"}'),
-(2, 'tr', '{\"home\":\"Anasyfa\",\"logout\":\"\\u00c7\\u0131k\\u0131\\u015f\",\"users\":\"Kullan\\u0131c\\u0131lar\",\"userLists\":\"Kullan\\u0131c\\u0131 Listesi\",\"userAdd\":\"Kullan\\u0131c\\u0131 Ekle\",\"userGroups\":\"Kullan\\u0131c\\u0131 Gruplar\\u0131\",\"groupLists\":\"Grup Listesi\",\"groupAdd\":\"Grup Ekle\",\"languageManagement\":\"Dil Y\\u00f6netimi\",\"languageLists\":\"Dil Listesi\",\"addNewLanguage\":\"Yeni Dil Ekle\",\"saveButton\":\"Kaydet\",\"updateButton\":\"G\\u00fcncelle\",\"editButton\":\"D\\u00fczenle\",\"deleteButton\":\"Sil\",\"cancelButton\":\"\\u0130ptal\",\"translationButton\":\"\\u00c7eviri\",\"select\":\"Se\\u00e7in\",\"username\":\"Kullan\\u0131c\\u0131\",\"groupName\":\"Grup Ad\\u0131\",\"status\":\"Durum\",\"active\":\"Aktif\",\"passive\":\"Pasif\",\"email\":\"Email\",\"password\":\"\\u015eifre\",\"userBio\":\"Kullan\\u0131c\\u0131 Bilgisi\",\"userEdit\":\"Kullan\\u0131c\\u0131 D\\u00fczenle\",\"successSave\":\"\",\"successUpdate\":\"\",\"successDelete\":\"\",\"usernameError\":\"\",\"passwordError\":\"\",\"emailError\":\"\",\"userBioError\":\"\",\"statusError\":\"\",\"groupNameError\":\"\",\"validEmailError\":\"\",\"isUniqueEmailError\":\"\",\"permissionEditError\":\"\",\"adminPermissionError\":\"\",\"userGroupEdit\":\"Kullan\\u0131c\\u0131 Grup D\\u00fczenle\",\"userGroupName\":\"Kullan\\u0131c\\u0131 Grup Ad\\u0131\",\"userGroupStatus\":\"Grup Durumu\",\"userGroupPermission\":\"Kullan\\u0131c\\u0131 Grup \\u0130zinleri\",\"permissionArea\":\"\\u0130zin Alan\\u0131\",\"permissionView\":\"G\\u00f6r\\u00fcnt\\u00fcle\",\"permissionAdd\":\"Ekle\",\"permissionEdit\":\"D\\u00fczenle\",\"permissionDelete\":\"Sil\",\"userGroupSuccessSave\":\"\",\"userGroupSuccessUpdate\":\"\",\"userGroupSuccessDelete\":\"\",\"userGroupNameError\":\"\",\"userGroupStatusError\":\"\",\"permissionUserGroupEditError\":\"\",\"translationPage\":\"\\u00c7eviri Sayfas\\u0131\",\"languageTitle\":\"Dil\",\"shortName\":\"K\\u0131saltma\",\"flag\":\"Bayrak\",\"languageStatus\":\"Dil Durumu\",\"creationDate\":\"Olu\\u015fturma Tarihi\",\"defaultLanguage\":\"Varsay\\u0131lan\",\"translateSuccessSave\":\"\",\"languageSuccessSave\":\"\",\"sweetalertTitle\":\"\",\"sweetalertText\":\"\",\"confirmButtonText\":\"\",\"cancelButtonText\":\"\",\"languageSuccessDelete\":\"\"}');
+(1, 'us', '{\"home\":\"Home\",\"logout\":\"Logout\",\"sliderModule\":\"Slider\",\"sliderLists\":\"Slider Lists\",\"sliderAdd\":\"Slider Add\",\"users\":\"Users\",\"userLists\":\"User Lists\",\"userAdd\":\"User Add\",\"userGroups\":\"User Groups\",\"groupLists\":\"Group Lists\",\"groupAdd\":\"Group Add\",\"languageManagement\":\"Language Management\",\"languageLists\":\"Language Lists\",\"addNewLanguage\":\"Add New Language\",\"saveButton\":\"Save\",\"updateButton\":\"Update\",\"editButton\":\"Edit\",\"deleteButton\":\"Delete\",\"cancelButton\":\"Cancel\",\"translationButton\":\"Translation\",\"select\":\"Select\",\"sliderTitle\":\"Slider Title\",\"sliderDescription\":\"Slider Description\",\"sliderListsImage\":\"Image\",\"sliderListsTitle\":\"Title\",\"sliderListsDescription\":\"Description\",\"sliderListsCreatedAt\":\"Created At\",\"sliderListsActions\":\"Actions\",\"sliderEmpty\":\"Slider not found!\",\"sliderSuccessDeleteMessage\":\"Slider deleted successfully!\",\"username\":\"Username\",\"groupName\":\"Group Name\",\"status\":\"Status\",\"active\":\"Active\",\"passive\":\"Passive\",\"email\":\"Email\",\"password\":\"Password\",\"userBio\":\"User Bio\",\"userEdit\":\"User Edit\",\"successSave\":\"\",\"successUpdate\":\"\",\"successDelete\":\"\",\"usernameError\":\"\",\"passwordError\":\"\",\"emailError\":\"\",\"userBioError\":\"\",\"statusError\":\"\",\"groupNameError\":\"\",\"validEmailError\":\"\",\"isUniqueEmailError\":\"\",\"permissionEditError\":\"\",\"adminPermissionError\":\"\",\"userGroupEdit\":\"User Group Edit\",\"userGroupName\":\"User Group Name\",\"userGroupStatus\":\"User Group Status\",\"userGroupPermission\":\"User Group Permission\",\"permissionArea\":\"Permission Area\",\"permissionView\":\"View\",\"permissionAdd\":\"Add\",\"permissionEdit\":\"Edit\",\"permissionDelete\":\"Delete\",\"userGroupSuccessSave\":\"\",\"userGroupSuccessUpdate\":\"\",\"userGroupSuccessDelete\":\"\",\"userGroupNameError\":\"\",\"userGroupStatusError\":\"\",\"permissionUserGroupEditError\":\"\",\"translationPage\":\"Translation Page\",\"languageTitle\":\"Language Title\",\"shortName\":\"Short Name\",\"flag\":\"Flag\",\"languageStatus\":\"Language Status\",\"creationDate\":\"Creation Date\",\"defaultLanguage\":\"Default Language\",\"translateSuccessSave\":\"\",\"languageSuccessSave\":\"\",\"sweetalertTitle\":\"\",\"sweetalertText\":\"\",\"confirmButtonText\":\"\",\"cancelButtonText\":\"\",\"languageSuccessDelete\":\"\"}'),
+(2, 'tr', '{\"home\":\"Anasayfa\",\"logout\":\"\\u00c7\\u0131k\\u0131\\u015f\",\"sliderModule\":\"Slider\",\"sliderLists\":\"Slider Listesi\",\"sliderAdd\":\"Yeni Slider Ekle\",\"users\":\"Kullan\\u0131c\\u0131lar\",\"userLists\":\"Kullan\\u0131c\\u0131 Listesi\",\"userAdd\":\"Kullan\\u0131c\\u0131 Ekle\",\"userGroups\":\"Kullan\\u0131c\\u0131 Gruplar\\u0131\",\"groupLists\":\"Grup Listesi\",\"groupAdd\":\"Grup Ekle\",\"languageManagement\":\"Dil Y\\u00f6netimi\",\"languageLists\":\"Dil Listesi\",\"addNewLanguage\":\"Yeni Dil Ekle\",\"saveButton\":\"Kaydet\",\"updateButton\":\"G\\u00fcncelle\",\"editButton\":\"D\\u00fczenle\",\"deleteButton\":\"Sil\",\"cancelButton\":\"\\u0130ptal\",\"translationButton\":\"\\u00c7eviri\",\"select\":\"Se\\u00e7in\",\"sliderTitle\":\"Slider Ba\\u015fl\\u0131k\",\"sliderDescription\":\"Slider A\\u00e7\\u0131klama\",\"sliderListsImage\":\"Resim\",\"sliderListsTitle\":\"Ba\\u015fl\\u0131k\",\"sliderListsDescription\":\"A\\u00e7\\u0131klama\",\"sliderListsCreatedAt\":\"Olu\\u015fturma Tarihi\",\"sliderListsActions\":\"\\u0130\\u015flemler\",\"sliderEmpty\":\"Slider bulunamad\\u0131!\",\"sliderSuccessDeleteMessage\":\"Slider ba\\u015far\\u0131yla silindi!\",\"username\":\"Kullan\\u0131c\\u0131\",\"groupName\":\"Grup Ad\\u0131\",\"status\":\"Durum\",\"active\":\"Aktif\",\"passive\":\"Pasif\",\"email\":\"Email\",\"password\":\"\\u015eifre\",\"userBio\":\"Kullan\\u0131c\\u0131 Bilgisi\",\"userEdit\":\"Kullan\\u0131c\\u0131 D\\u00fczenle\",\"successSave\":\"\",\"successUpdate\":\"\",\"successDelete\":\"\",\"usernameError\":\"\",\"passwordError\":\"\",\"emailError\":\"\",\"userBioError\":\"\",\"statusError\":\"\",\"groupNameError\":\"\",\"validEmailError\":\"\",\"isUniqueEmailError\":\"\",\"permissionEditError\":\"\",\"adminPermissionError\":\"\",\"userGroupEdit\":\"Kullan\\u0131c\\u0131 Grup D\\u00fczenle\",\"userGroupName\":\"Kullan\\u0131c\\u0131 Grup Ad\\u0131\",\"userGroupStatus\":\"Grup Durumu\",\"userGroupPermission\":\"Kullan\\u0131c\\u0131 Grup \\u0130zinleri\",\"permissionArea\":\"\\u0130zin Alan\\u0131\",\"permissionView\":\"G\\u00f6r\\u00fcnt\\u00fcle\",\"permissionAdd\":\"Ekle\",\"permissionEdit\":\"D\\u00fczenle\",\"permissionDelete\":\"Sil\",\"userGroupSuccessSave\":\"\",\"userGroupSuccessUpdate\":\"\",\"userGroupSuccessDelete\":\"\",\"userGroupNameError\":\"\",\"userGroupStatusError\":\"\",\"permissionUserGroupEditError\":\"\",\"translationPage\":\"\\u00c7eviri Sayfas\\u0131\",\"languageTitle\":\"Dil\",\"shortName\":\"K\\u0131saltma\",\"flag\":\"Bayrak\",\"languageStatus\":\"Dil Durumu\",\"creationDate\":\"Olu\\u015fturma Tarihi\",\"defaultLanguage\":\"Varsay\\u0131lan\",\"translateSuccessSave\":\"\",\"languageSuccessSave\":\"\",\"sweetalertTitle\":\"\",\"sweetalertText\":\"\",\"confirmButtonText\":\"\",\"cancelButtonText\":\"\",\"languageSuccessDelete\":\"\"}');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` int(11) NOT NULL,
+  `image_path` varchar(255) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -354,8 +369,8 @@ CREATE TABLE `user_groups` (
 --
 
 INSERT INTO `user_groups` (`id`, `group_name`, `group_permission`, `group_status`) VALUES
-(1, 'Admin', '{\"group_name\":\"Admin\",\"group_status\":\"1\",\"dashboard_view_p\":\"on\",\"dashboard_save_p\":\"on\",\"dashboard_edit_p\":\"on\",\"dashboard_delete_p\":\"on\",\"user_view_p\":\"on\",\"user_save_p\":\"on\",\"user_edit_p\":\"on\",\"user_delete_p\":\"on\",\"user_group_view_p\":\"on\",\"user_group_save_p\":\"on\",\"user_group_edit_p\":\"on\",\"user_group_delete_p\":\"on\"}', 1),
-(2, 'Moderatör', '{\"group_name\":\"Moderat\\u00f6r\",\"group_status\":\"1\",\"dashboard_view_p\":\"on\",\"dashboard_save_p\":\"on\",\"dashboard_edit_p\":\"on\",\"dashboard_delete_p\":\"on\",\"user_view_p\":\"on\",\"user_save_p\":\"on\",\"user_edit_p\":\"on\",\"user_delete_p\":\"on\",\"user_group_view_p\":\"on\",\"user_group_save_p\":\"on\",\"user_group_edit_p\":\"on\",\"user_group_delete_p\":\"on\"}', 1);
+(1, 'Admin', '{\"group_name\":\"Admin\",\"group_status\":\"1\",\"group_id\":\"1\",\"dashboard_view_p\":\"on\",\"dashboard_save_p\":\"on\",\"dashboard_edit_p\":\"on\",\"dashboard_delete_p\":\"on\",\"slider_view_p\":\"on\",\"slider_save_p\":\"on\",\"slider_edit_p\":\"on\",\"slider_delete_p\":\"on\",\"user_view_p\":\"on\",\"user_save_p\":\"on\",\"user_edit_p\":\"on\",\"user_delete_p\":\"on\",\"user_group_view_p\":\"on\",\"user_group_save_p\":\"on\",\"user_group_edit_p\":\"on\",\"user_group_delete_p\":\"on\"}', 1),
+(2, 'Moderatör', '{\"group_name\":\"Moderat\\u00f6r\",\"group_status\":\"1\",\"group_id\":\"2\",\"dashboard_view_p\":\"on\",\"dashboard_save_p\":\"on\",\"dashboard_edit_p\":\"on\",\"dashboard_delete_p\":\"on\",\"slider_view_p\":\"on\",\"slider_save_p\":\"on\",\"slider_edit_p\":\"on\",\"slider_delete_p\":\"on\",\"user_view_p\":\"on\",\"user_save_p\":\"on\",\"user_edit_p\":\"on\",\"user_delete_p\":\"on\",\"user_group_view_p\":\"on\",\"user_group_save_p\":\"on\",\"user_group_edit_p\":\"on\",\"user_group_delete_p\":\"on\"}', 1);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -377,6 +392,12 @@ ALTER TABLE `language_settings`
 -- Tablo için indeksler `language_translates`
 --
 ALTER TABLE `language_translates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Tablo için indeksler `sliders`
+--
+ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -414,6 +435,12 @@ ALTER TABLE `language_translates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
@@ -423,7 +450,7 @@ ALTER TABLE `users`
 -- Tablo için AUTO_INCREMENT değeri `user_groups`
 --
 ALTER TABLE `user_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

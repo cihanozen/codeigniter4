@@ -149,8 +149,8 @@ class Language extends BaseController
         else
         {
 
-            $xxx = $this->request->getPost('language_short_name');
-            $short_name = strtolower($xxx);
+            $xxx = $this->request->getPost('language_short_name') || [];
+            $short_name = strtolower($xxx) ;
 
             // Klasör eklimi kontrol et
             if(file_exists('app/Language/'.$short_name)){
@@ -264,6 +264,10 @@ return [];
 
         $arrayData = json_decode($jsonData,true);
 
+
+
+        
+
                     // Klasör eklimi kontrol et
                     if(file_exists('app/Language/'.$id)){
              
@@ -347,17 +351,26 @@ return [];
             'ConfirmButtonText'                 => '".$arrayData['confirmButtonText']."',
             'CancelButtonText'                  => '".$arrayData['cancelButtonText']."',
             'LanguageSuccessDelete'             => '".$arrayData['languageSuccessDelete']."',
-            
-            
-            
-            
+        // Slider    
+            'SliderModule'                      => '".$arrayData['sliderModule']."',
+            'SliderLists'                       => '".$arrayData['sliderLists']."',
+            'SliderAdd'                         => '".$arrayData['sliderAdd']."',           
+            'SliderTitle'                       => '".$arrayData['sliderTitle']."',  
+            'SliderDescription'                 => '".$arrayData['sliderDescription']."',  
+            'SliderListsImage'                  => '".$arrayData['sliderListsImage']."',
+            'SliderListsTitle'                  => '".$arrayData['sliderListsTitle']."', 
+            'SliderListsDescription'            => '".$arrayData['sliderListsDescription']."', 
+            'SliderListsCreatedAt'              => '".$arrayData['sliderListsCreatedAt']."',
+            'SliderListsActions'                => '".$arrayData['sliderListsActions']."',
+            'SliderSuccessDeleteMessage'        => '".$arrayData['sliderSuccessDeleteMessage']."',
+            'SliderEmpty'                       => '".$arrayData['sliderEmpty']."',
         ];
         ?>";
                         fwrite($file,$txt);
                         fclose($file);
         
                     }else{
-        
+
                         // Yeni klasör oluşturdu
                         mkdir('app/Language/'.$id, 0777, true);
         
@@ -442,10 +455,18 @@ return [];
             'ConfirmButtonText'                 => '".$arrayData['confirmButtonText']."',
             'CancelButtonText'                  => '".$arrayData['cancelButtonText']."',
             'LanguageSuccessDelete'             => '".$arrayData['languageSuccessDelete']."',
-            
-            
-            
-            
+        // Slider    
+            'SliderModule'                      => '".$arrayData['sliderModule']."',
+            'SliderLists'                       => '".$arrayData['sliderLists']."',
+            'SliderAdd'                         => '".$arrayData['sliderAdd']."',           
+            'SliderTitle'                       => '".$arrayData['sliderTitle']."',  
+            'SliderDescription'                 => '".$arrayData['sliderDescription']."',  
+            'SliderListsImage'                  => '".$arrayData['sliderListsImage']."',
+            'SliderListsTitle'                  => '".$arrayData['sliderListsTitle']."', 
+            'SliderListsDescription'            => '".$arrayData['sliderListsDescription']."', 
+            'SliderListsCreatedAt'              => '".$arrayData['sliderListsCreatedAt']."',
+            'SliderSuccessDeleteMessage'        => '".$arrayData['sliderSuccessDeleteMessage']."',
+            'SliderEmpty'                       => '".$arrayData['sliderEmpty']."', 
             
         ];
         ?>";

@@ -141,6 +141,47 @@
                         </div>
                       </td>
                     </tr>
+
+                    <tr>
+                      <td>Slider</td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                          <?php echo isset($permissions['slider_view_p']) ? 'checked' : '' ; ?>
+                          
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_view_p" name="slider_view_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
+                          <label for="slider_view_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                          <?php echo isset($permissions['slider_save_p']) ? 'checked' : '' ; ?>
+                       
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_save_p" name="slider_save_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
+                          <label for="slider_save_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                            <input
+                            <?php echo isset($permissions['slider_edit_p']) ? 'checked' : '' ; ?>
+                            
+                            class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_edit_p" name="slider_edit_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
+                            <label for="slider_edit_p" class="custom-control-label" style="cursor: pointer;"></label>
+                          </div>  
+                      </td>
+                      <td style="width: 20%; text-align:center;">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                          <?php echo isset($permissions['slider_delete_p']) ? 'checked' : '' ; ?>
+
+                          class="custom-control-input custom-control-input-danger text-center" type="checkbox" id="slider_delete_p" name="slider_delete_p" <?php if($userGroup->group_status == 0) { echo 'disabled'; }?> >
+                          <label for="slider_delete_p" class="custom-control-label" style="cursor: pointer;"></label>
+                        </div>
+                      </td>
+                    </tr>
+
                     <tr>
                       <td>Kullanıcılar</td>
                       <td style="width: 20%; text-align:center;">

@@ -1,7 +1,7 @@
 <?php
         return [
         // Header
-            'Home'                              => 'Anasyfa',
+            'Home'                              => 'Anasayfa',
             'Logout'                            => 'Çıkış',
         // Menu
             'Users'                             => 'Kullanıcılar',
@@ -75,9 +75,18 @@
             'ConfirmButtonText'                 => '',
             'CancelButtonText'                  => '',
             'LanguageSuccessDelete'             => '',
-            
-            
-            
-            
+        // Slider    
+            'SliderModule'                      => 'Slider',
+            'SliderLists'                       => 'Slider Listesi',
+            'SliderAdd'                         => 'Yeni Slider Ekle',           
+            'SliderTitle'                       => 'Slider Başlık',  
+            'SliderDescription'                 => 'Slider Açıklama',  
+            'SliderListsImage'                  => 'Resim',
+            'SliderListsTitle'                  => 'Başlık', 
+            'SliderListsDescription'            => 'Açıklama', 
+            'SliderListsCreatedAt'              => 'Oluşturma Tarihi',
+            'SliderListsActions'                => 'İşlemler',
+            'SliderSuccessDeleteMessage'        => 'Slider başarıyla silindi!',
+            'SliderEmpty'                       => 'Slider bulunamadı!',
         ];
         ?>

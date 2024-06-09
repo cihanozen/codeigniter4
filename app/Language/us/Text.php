@@ -75,9 +75,18 @@
             'ConfirmButtonText'                 => '',
             'CancelButtonText'                  => '',
             'LanguageSuccessDelete'             => '',
-            
-            
-            
-            
+        // Slider    
+            'SliderModule'                      => 'Slider',
+            'SliderLists'                       => 'Slider Lists',
+            'SliderAdd'                         => 'Slider Add',           
+            'SliderTitle'                       => 'Slider Title',  
+            'SliderDescription'                 => 'Slider Description',  
+            'SliderListsImage'                  => 'Image',
+            'SliderListsTitle'                  => 'Title', 
+            'SliderListsDescription'            => 'Description', 
+            'SliderListsCreatedAt'              => 'Created At',
+            'SliderListsActions'                => 'Actions',
+            'SliderSuccessDeleteMessage'        => 'Slider deleted successfully!',
+            'SliderEmpty'                       => 'Slider not found!',
         ];
         ?>

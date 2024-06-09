@@ -98,7 +98,23 @@
                     <div id="collapse" class="collapse" data-parent="#accordion">
                         <div class="card-body">
 
-                    
+                        <blockquote class="quote-secondary mt-0">
+                          <div class="form-group">
+                              <label>Slider</label>
+                              <textarea name="sliderModule" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderModule'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                            <label>Slider Lists</label>
+                            <textarea name="sliderLists" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderLists'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                            <label>Slider Add</label>
+                            <textarea name="sliderAdd" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderAdd'];?></textarea>
+                          </div>
+                        </blockquote>
+
                         <blockquote class="quote-secondary mt-0">
                           <div class="form-group">
                               <label>Users</label>
@@ -150,7 +166,6 @@
                           </div>
                         </blockquote>
                           
-
                         </div>
                     </div>
                
@@ -205,6 +220,75 @@
 
                     </div>
                       
+                    </div>
+              </div>
+
+              <div class="card card-dark card-outline">
+                    <a class="d-block w-100" data-toggle="collapse" href="#collapse7">
+                        <div class="card-header">
+                            <h4 class="card-title w-100">
+                              <b><?php echo Lang('Text.SliderModule');?></b> <small>- Slider Modülünü düzenleyebilirsiniz</small>
+                            </h4>
+                        </div>
+                    </a>
+                    <div id="collapse7" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+
+                          <div class="form-group">
+                              <label>Slider</label>
+                              <textarea name="sliderModule" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderModule'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Title</label>
+                              <textarea name="sliderTitle" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderTitle'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Description</label>
+                              <textarea name="sliderDescription" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderDescription'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Lists Image</label>
+                              <textarea name="sliderListsImage" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderListsImage'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Lists Title</label>
+                              <textarea name="sliderListsTitle" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderListsTitle'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Lists Description</label>
+                              <textarea name="sliderListsDescription" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderListsDescription'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Lists Created At</label>
+                              <textarea name="sliderListsCreatedAt" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderListsCreatedAt'];?></textarea>
+                          </div>
+                         
+                          <div class="form-group">
+                              <label>Slider Lists Actions</label>
+                              <textarea name="sliderListsActions" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderListsActions'];?></textarea>
+                          </div>
+
+                          <div class="form-group">
+                              <label>Slider Empty</label>
+                              <textarea name="sliderEmpty" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderEmpty'];?></textarea>
+                          </div>
+
+                          <blockquote class="quote-success mt-0">
+                            
+                            <div class="form-group">
+                                <label>Slider Success Delete Message</label>
+                                <textarea name="sliderSuccessDeleteMessage" class="form-control" rows="3" placeholder="Enter ..."><?php echo @$translates['sliderSuccessDeleteMessage'];?></textarea>
+                            </div>
+
+                            </blockquote>
+
+                        </div>
                     </div>
               </div>
 

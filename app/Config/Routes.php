@@ -15,16 +15,17 @@ $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
 
     $routes->get('dashboard', 'Dashboard::index');
     $routes->get('dark-mode', 'Dashboard::dark_mode');
-  
-    // USER
+
+    #region User Routes
     $routes->get('user-lists', 'User::userLists');
     $routes->get('user-add', 'User::userAdd');
     $routes->get('user-edit/(:any)', 'User::userEdit/$1');
     $routes->post('user-edit/update/(:any)', 'User::userUpdate/$1');
     $routes->post('user-add/save', 'User::userSave');
     $routes->get('user-lists/delete/(:any)', 'User::userDelete/$1');
+    #endregion
 
-    // GROUP
+    #region Group Routes
     $routes->get('user-group-lists', 'UserGroup::userGroupLists');
     $routes->get('user-group-permission', 'UserGroup::userGroupPermission');
     $routes->get('user-group-add', 'UserGroup::userGroupAdd');
@@ -32,7 +33,9 @@ $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
     $routes->post('user-group-edit/update/(:any)', 'UserGroup::userGroupUpdate/$1');
     $routes->post('user-group-add/save', 'UserGroup::userGroupSave');
     $routes->get('user-group-lists/delete/(:any)', 'UserGroup::userGroupDelete/$1');
-
+    #endregion
+    
+    #region Languages
     $routes->get('language-lists', 'Language::languageLists');
     $routes->get('language-add', 'Language::languageAdd');
     $routes->post('language-add/save', 'Language::languageSave');
@@ -40,7 +43,15 @@ $routes->group('{locale}', ['filter' => 'AuthCheckFilter'] , function($routes){
     $routes->post('language-translate/update/(:any)', 'Language::languageTranslateUpdate/$1');
     $routes->post('language-lists/delete', 'Language::languageDelete');
     $routes->post('language-selected-change', 'Language::languageSelectedChange');
+    #endregion
     
+    #region Slider
+    $routes->get('slider-lists', 'SliderController::index');
+    $routes->get('slider-create', 'SliderController::create');
+    $routes->post('slider-save', 'SliderController::save');
+    $routes->get('slider-lists/delete/(:any)', 'SliderController::delete/$1');
+    #endregion
+       
 });
 
 
